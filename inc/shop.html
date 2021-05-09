@@ -3,9 +3,9 @@
 ?>
 
 <body>
-  <h2>SHOPPIE</h2>
-    
-  <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
+    <h2>SHOPPIE</h2>
+
+    <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
     <?php
     require_once 'includes/dbh.inc.php';
     global $conn;
@@ -25,6 +25,67 @@
         echo "Name: " . $row['smallName']."<br>";
         echo "Description: " . $row['smallDescription']."<br>";
         echo "Price: € " . $row['smallPrice']."<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "</div>";
+
+      }
+    }
+
+    require_once 'includes/dbh.inc.php';
+    global $conn;
+
+    $sql = "SELECT * FROM medium";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if($resultCheck > 0) {
+  
+      while ($row = mysqli_fetch_array($result)) {
+
+        echo "<div id='testje'>";
+        $imgpath=$row['mediumImage'];
+        echo $imgpath;
+        echo "<br><img src='$imgpath' height='150' width='auto'><br>";
+        echo "Name: " . $row['mediumName']."<br>";
+        echo "Description: " . $row['mediumDescription']."<br>";
+        echo "Price: € " . $row['mediumPrice']."<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "</div>";
+
+      }
+    }
+
+    require_once 'includes/dbh.inc.php';
+    global $conn;
+
+    $sql = "SELECT * FROM large";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if($resultCheck > 0) {
+  
+      while ($row = mysqli_fetch_array($result)) {
+
+        echo "<div id='testje'>";
+        $imgpath=$row['largeImage'];
+        echo $imgpath;
+        echo "<br><img src='$imgpath' height='150' width='auto'><br>";
+        echo "Name: " . $row['largeName']."<br>";
+        echo "Description: " . $row['largeDescription']."<br>";
+        echo "Price: € " . $row['largePrice']."<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
         echo "</div>";
 
       }
