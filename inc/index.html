@@ -1,0 +1,90 @@
+<?php
+  include_once 'header.php';
+?>
+
+<section class="index-intro">
+
+  <?php
+  if (isset($_SESSION["userid"])) {
+    echo "<p>Hello there, " . $_SESSION["useruid"] . "</p>";
+  }
+  ?>
+
+  <h1>Welcome!</h1>
+
+    <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
+    <?php
+      require_once 'includes/dbh.inc.php';
+      global $conn;
+
+      $sql = "SELECT * FROM users";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result);
+      
+      if($resultCheck > 0) {
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo $row['usersName']."<br>";
+        }
+      }
+    ?>
+
+</section>
+
+<section class="index-categories">
+  <h2>Some Basic Categories</h2>
+  <div class="index-categories-list">
+    <div>
+      <h3>Fun Stuff</h3>
+    </div>
+    <div>
+      <h3>Serious Stuff</h3>
+    </div>
+    <div>
+      <h3>Exciting Stuff</h3>
+    </div>
+    <div>
+      <h3>Boring Stuff</h3>
+    </div>
+  </div>
+</section>
+
+<?php
+  include_once 'footer.php';
+?>
+
+
+    <!-- CONNECTIE MAKEN MET DE DB, NAAM EN PRIJS SELECTEREN VAN DE TABEL KLEIN EN DEZE TONEN OP HET SCHERM-->
+    <!-- <?php
+      include("connection.php");
+      global $conn;
+
+      $sql = mysqli_query($conn, "SELECT naam, prijs FROM klein"); 
+      $sqlAantal = mysqli_num_rows($sql);
+
+      if ($sqlAantal > 0) { 
+        
+        while ($sqlData = mysqli_fetch_assoc($sql)) { 
+      
+          echo nl2br("\n".$sqlData['naam']);
+          echo nl2br("\n".$sqlData['prijs']);
+        } 
+      } else { 
+        
+        echo "Sorry, ik heb niets kunnen vinden";
+      }
+
+    mysqli_close($conn); 
+    
+    ?> -->
+
+    <!-- HOOFDTITEL MET TWEE LINKEN-->
+<!--     <h1>Quetie and Smoetie's Quality Scratching</h1>
+
+    <a href="https://www.google.com">Google</a>
+    <br>
+    <a href="./shop.html">SHOP</a>
+    <br> -->
+
+
+

@@ -1,0 +1,37 @@
+<?php 
+  include_once 'header.php';
+?>
+
+<body>
+  <h2>SHOPPIE</h2>
+    
+  <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
+    <?php
+    require_once 'includes/dbh.inc.php';
+    global $conn;
+
+    $sql = "SELECT * FROM small";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if($resultCheck > 0) {
+  
+      while ($row = mysqli_fetch_array($result)) {
+
+        echo "<div id='testje'>";
+        $imgpath=$row['smallImage'];
+        echo $imgpath;
+        echo "<br><img src='$imgpath' height='150' width='auto'><br>";
+        echo "Name: " . $row['smallName']."<br>";
+        echo "Description: " . $row['smallDescription']."<br>";
+        echo "Price: € " . $row['smallPrice']."<br>";
+        echo "</div>";
+
+      }
+    }
+    ?>
+</body>
+
+<?php
+  include_once 'footer.php';
+?>
