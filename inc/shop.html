@@ -3,7 +3,7 @@
 ?>
 
 <body>
-    <h2>SHOPPIE</h2>
+    <h2>SHOP</h2>
 
     <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
     <?php
@@ -21,7 +21,7 @@
         echo "<div id='testje'>";
         $imgpath=$row['smallImage'];
         echo $imgpath;
-        echo "<br><img src='$imgpath' height='150' width='auto'><br>";
+        echo "<br><img src='$imgpath' height='150' width='auto' alt="Image"><br>";
         echo "Name: " . $row['smallName']."<br>";
         echo "Description: " . $row['smallDescription']."<br>";
         echo "Price: € " . $row['smallPrice']."<br>";
@@ -49,7 +49,7 @@
         echo "<div id='testje'>";
         $imgpath=$row['mediumImage'];
         echo $imgpath;
-        echo "<br><img src='$imgpath' height='150' width='auto'><br>";
+        echo "<br><img src='$imgpath' height='150' width='auto' alt="Image"><br>";
         echo "Name: " . $row['mediumName']."<br>";
         echo "Description: " . $row['mediumDescription']."<br>";
         echo "Price: € " . $row['mediumPrice']."<br>";
@@ -77,7 +77,7 @@
         echo "<div id='testje'>";
         $imgpath=$row['largeImage'];
         echo $imgpath;
-        echo "<br><img src='$imgpath' height='150' width='auto'><br>";
+        echo "<br><img src='$imgpath' height='150' width='auto' alt="Image"><br>";
         echo "Name: " . $row['largeName']."<br>";
         echo "Description: " . $row['largeDescription']."<br>";
         echo "Price: € " . $row['largePrice']."<br>";
