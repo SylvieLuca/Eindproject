@@ -2,9 +2,9 @@
   include_once 'header.php';
 ?>
 
-<section class="signup-form">
+<section>
   <h2>Sign Up</h2>
-  <div class="signup-form-form">
+  <div>
     <form action="includes/signup.inc.php" method="post">
       <input type="text" name="name" placeholder="Full name...">
       <input type="text" name="email" placeholder="Email...">
@@ -41,7 +41,3 @@
   }
 ?>
 </section>
-
-<?php
-  include_once 'footer.php';
-?>

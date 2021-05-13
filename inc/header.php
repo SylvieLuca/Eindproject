@@ -11,7 +11,7 @@
   <body>
 
     <nav>
-      <div class="wrapper">
+      <div>
         <ul>
           <li><a href="index.html">Home</a></li>
 
@@ -29,4 +29,3 @@
           </ul>
       </div>
     </nav>
-<div class="wrapper">

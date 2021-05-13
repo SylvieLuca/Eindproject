@@ -1,10 +1,13 @@
 <?php 
-  include_once 'header.php';
+  include_once'header.php';
 ?>
 
 <body>
+  <div>
     <h2>SHOP</h2>
+  </div>
 
+  <div class="container">
     <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
     <?php
     require_once 'includes/dbh.inc.php';
@@ -18,13 +21,12 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div id='testje'>";
+        echo "<div class='image'>";
         $imgpath=$row['smallImage'];
-        echo $imgpath;
-        echo "<br><img src='$imgpath' height='150' width='auto' alt="Image"><br>";
+        echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo "Name: " . $row['smallName']."<br>";
         echo "Description: " . $row['smallDescription']."<br>";
-        echo "Price: € " . $row['smallPrice']."<br>";
+        echo "Price: â‚¬ " . $row['smallPrice']."<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
@@ -46,13 +48,12 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div id='testje'>";
+        echo "<div class='image'>";
         $imgpath=$row['mediumImage'];
-        echo $imgpath;
-        echo "<br><img src='$imgpath' height='150' width='auto' alt="Image"><br>";
+        echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo "Name: " . $row['mediumName']."<br>";
         echo "Description: " . $row['mediumDescription']."<br>";
-        echo "Price: € " . $row['mediumPrice']."<br>";
+        echo "Price: â‚¬ " . $row['mediumPrice']."<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
@@ -74,25 +75,20 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div id='testje'>";
+        echo "<div class='image'>";
         $imgpath=$row['largeImage'];
-        echo $imgpath;
-        echo "<br><img src='$imgpath' height='150' width='auto' alt="Image"><br>";
+        echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo "Name: " . $row['largeName']."<br>";
         echo "Description: " . $row['largeDescription']."<br>";
-        echo "Price: € " . $row['largePrice']."<br>";
+        echo "Price: â‚¬ " . $row['largePrice']."<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
         echo "</div>";
-
       }
     }
     ?>
-</body>
+  </div>
 
-<?php
-  include_once 'footer.php';
-?>
