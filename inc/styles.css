@@ -1,0 +1,111 @@
+/* Basic CSS rules */
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --color-primary: #cc86b5;
+  --color-secondary: #2596BE;
+  --color-accent: #f9cac2;
+  --color-headings: #1b0760;
+  --color-body: #918ca4;
+}
+
+body {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  color: var(--color-body);
+}
+
+h1, h2, h3 {
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+/* Basic CSS rules for bigger screens */
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem;
+  }
+  
+  h1 {
+    font-size: 8rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Badges */
+.badge {
+  border-radius: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  white-space: nowrap;
+}
+
+.badge--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.badge--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.badge--small {
+  font-size: 1.6rem;
+}
+
+/* Badges for bigger screens */
+@media screen and (min-width: 1024px) {
+  .badge {
+    font-size: 1.5rem;
+  }
+
+  .badge--small {
+    font-size: 1.2rem;
+  }
+}
+
+
+.container {
+  background-color: khaki;
+  display: grid;
+  grid-template-columns: repeat(5, 300px);
+  border: 3px solid lightgrey;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.image {
+  margin: 10px;
+  border: 5px solid grey;
+  text-align: center;
+}

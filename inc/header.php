@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <title>Quetie and Smoetie's Quality Scratching</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
 
