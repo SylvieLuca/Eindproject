@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-
     <nav>
       <div>
         <ul>
@@ -31,3 +30,4 @@
           </ul>
       </div>
     </nav>
+          </body>

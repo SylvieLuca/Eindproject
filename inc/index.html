@@ -2,6 +2,27 @@
   include_once 'header.php';
 ?>
 <body>
+
+  <blockquote class="quote">
+    <p class="quote__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim exercitationem nesciunt perferendis dignissimos sunt nobis eaque harum mollitia ipsa eveniet.</p>
+    <footer>
+      <div class="media">
+        <div class="media__image">
+          <svg class="icon icon--primary quote__line">
+            <use xlink:href="images/sprite.svg#line"></use>
+          </svg>
+        </div>
+        <div class="media__body">
+          <h3 class="media__title quote__author">John Smith</h3>
+          <p class="quote__organization">
+            ABC Company
+          </p>
+        </div>
+      </div>
+      
+    </footer>
+  </blockquote>
+
   <div class="media">
     <div class="media__image">
         <svg class="icon icon--primary">
@@ -159,38 +180,3 @@
   </div>
 </section>
 </body>
-
-    <!-- CONNECTIE MAKEN MET DE DB, NAAM EN PRIJS SELECTEREN VAN DE TABEL KLEIN EN DEZE TONEN OP HET SCHERM-->
-    <!-- <?php
-      include("connection.php");
-      global $conn;
-
-      $sql = mysqli_query($conn, "SELECT naam, prijs FROM klein"); 
-      $sqlAantal = mysqli_num_rows($sql);
-
-      if ($sqlAantal > 0) { 
-        
-        while ($sqlData = mysqli_fetch_assoc($sql)) { 
-      
-          echo nl2br("\n".$sqlData['naam']);
-          echo nl2br("\n".$sqlData['prijs']);
-        } 
-      } else { 
-        
-        echo "Sorry, ik heb niets kunnen vinden";
-      }
-
-    mysqli_close($conn); 
-    
-    ?> -->
-
-    <!-- HOOFDTITEL MET TWEE LINKEN-->
-<!--     <h1>Quetie and Smoetie's Quality Scratching</h1>
-
-    <a href="https://www.google.com">Google</a>
-    <br>
-    <a href="./shop.html">SHOP</a>
-    <br> -->
-
-
-
