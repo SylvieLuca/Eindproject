@@ -2,6 +2,28 @@
   include_once 'header.php';
 ?>
 <body>
+  <nav class="nav collapsible">
+    <a class="nav__brand" href="/"><img src="images/logo.svg" alt=""></a>
+    <svg class="icon icon--white nav__toggler">
+      <use xlink:href="images/sprite.svg#menu"></use>
+    </svg>
+    <ul class="list nav__list collapsible__content">
+      <li class="nav__item"><a href="#">Hosting</a></li>
+      <li class="nav__item"><a href="#">VPS</a></li>
+      <li class="nav__item"><a href="#">Domain</a></li>
+      <li class="nav__item"><a href="#">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <div class="callout callout--primary">
+    <div class="grid grid--1x2">
+      <div class="callout__content">
+        <h2 class="callout__heading">Ready to Get Started?</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, consectetur sit sapiente magni libero ex ad nam repellendus cupiditate facere.</p>
+      </div>
+      <a href="#" class="btn btn--secondary btn--stretched">Get Started</a>
+    </div>
+  </div>
 
   <section class="block">
     <header class="block__header">
@@ -36,16 +58,6 @@
     </div>
   </div>
   <script src="js/main.js"></script>
-
-  <div class="callout callout--primary">
-    <div class="grid grid--1x2">
-      <div class="callout__content">
-        <h2 class="callout__heading">Ready to Get Started?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, consectetur sit sapiente magni libero ex ad nam repellendus cupiditate facere.</p>
-      </div>
-      <a href="#" class="btn btn--secondary btn--stretched">Get Started</a>
-    </div>
-  </div>
 
   <blockquote class="quote">
     <p class="quote__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim exercitationem nesciunt perferendis dignissimos sunt nobis eaque harum mollitia ipsa eveniet.</p>
