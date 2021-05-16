@@ -192,6 +192,11 @@ a {
   margin-left: 10px;
 }
 
+.link__logo {
+  width: 100%;
+  max-width: 250px;
+}
+
 /* Links for bigger screens */
 @media screen and (min-width: 1024px) {
   .link-arrow {
@@ -512,7 +517,7 @@ a {
 }
 
 .testimonial__image > img {
-  width: 100%;
+  width: 30%;
 }
 
 .testimonial__image > .icon-container {
@@ -687,7 +692,7 @@ a {
 
 .nav__brand {
   transform: translateY(5px);
-  width: 150px;
+  width: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -769,7 +774,7 @@ a {
 
 .footer__brand img {
   width: 100%;
-  max-width: 230px;
+  max-width: 500px;
 }
 
 .footer__copyright {
