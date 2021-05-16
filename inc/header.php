@@ -12,24 +12,3 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
-<!--   <body>
-    <nav>
-      <div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-
-          <?php
-            if (isset($_SESSION["userid"])) {
-              echo "<li><a href='profile.php'>Profile Page</a></li>";
-              echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
-            }
-            else {
-              echo "<li><a href='signup.php'>Sign up</a></li>";
-              echo "<li><a href='login.php'>Log In</a></li>";
-              echo "<li><a href='shop.html'>Shop</a></li>";
-            }
-          ?>
-          </ul>
-      </div>
-    </nav>
-  </body> -->
