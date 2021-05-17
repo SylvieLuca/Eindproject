@@ -252,6 +252,12 @@ a {
   fill: white;
 }
 
+
+.icon--buy {
+  width: 75px;
+}
+
+
 /* Inputs */
 .input {
   border-radius: var(--border-radius);

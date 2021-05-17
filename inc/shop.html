@@ -1,4 +1,5 @@
-<?php 
+<html>
+  <?php 
   include_once'header.php';
 ?>
 
@@ -8,6 +9,8 @@
   </div>
 
   <div class="container">
+
+    
     <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
     <?php
     require_once 'includes/dbh.inc.php';
@@ -26,14 +29,20 @@
         echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo $row['smallName']."<br>";
         echo $row['smallDescription']."<br>";
+        echo "<a href='index.html'>
+          <i>
+            <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
+          </i>
+        </a>";
         echo "€ " . $row['smallPrice']."<br>";
         echo "<br>";
         echo "<br>";
         echo "</div>";
-
       }
     }
+    ?>
 
+    <?php
     require_once 'includes/dbh.inc.php';
     global $conn;
 
@@ -50,14 +59,20 @@
         echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo $row['mediumName']."<br>";
         echo $row['mediumDescription']."<br>";
+        echo "<a href='index.html'>
+          <i>
+            <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
+          </i>
+        </a>";
         echo "€ " . $row['mediumPrice']."<br>";
         echo "<br>";
         echo "<br>";
         echo "</div>";
-
       }
     }
+    ?>
 
+    <?php
     require_once 'includes/dbh.inc.php';
     global $conn;
 
@@ -74,6 +89,11 @@
         echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo $row['largeName']."<br>";
         echo $row['largeDescription']."<br>";
+        echo "<a href='index.html'>
+          <i>
+            <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
+          </i>
+        </a>";
         echo "€ " . $row['largePrice']."<br>";
         echo "<br>";
         echo "<br>";
@@ -81,5 +101,6 @@
       }
     }
     ?>
-  </div>
 
+  </div>
+  </html>
