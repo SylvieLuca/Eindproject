@@ -24,17 +24,21 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div class='image'>";
+        echo "<div class='product'>";
         $imgpath=$row['smallImage'];
-        echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
+        echo "<img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo $row['smallName']."<br>";
         echo $row['smallDescription']."<br>";
+        echo "<div class='product--buy'>";
+        echo "<p class='product--buy-price'>";
+        echo "\xE2\x82\xAc " . $row['smallPrice'];
+        echo "</p>";
         echo "<a href='index.html'>
           <i>
             <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
           </i>
         </a>";
-        echo "€ " . $row['smallPrice']."<br>";
+        echo "</div>";
         echo "<br>";
         echo "<br>";
         echo "</div>";
@@ -54,17 +58,21 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div class='image'>";
+        echo "<div class='product'>";
         $imgpath=$row['mediumImage'];
-        echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
+        echo "<img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo $row['mediumName']."<br>";
         echo $row['mediumDescription']."<br>";
+        echo "<div class='product--buy'>";
+        echo "<p class='product--buy-price'>";
+        echo "\xE2\x82\xAc " . $row['mediumPrice'];
+        echo "</p>";
         echo "<a href='index.html'>
           <i>
             <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
           </i>
         </a>";
-        echo "€ " . $row['mediumPrice']."<br>";
+        echo "</div>";
         echo "<br>";
         echo "<br>";
         echo "</div>";
@@ -84,17 +92,21 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div class='image'>";
+        echo "<div class='product'>";
         $imgpath=$row['largeImage'];
-        echo "<br><img src='$imgpath' height='150' width='auto' alt='Image'><br>";
+        echo "<img src='$imgpath' height='150' width='auto' alt='Image'><br>";
         echo $row['largeName']."<br>";
         echo $row['largeDescription']."<br>";
+        echo "<div class='product--buy'>";
+        echo "<p class='product--buy-price'>";
+        echo "\xE2\x82\xAc " . $row['largePrice'];
+        echo "</p>";
         echo "<a href='index.html'>
           <i>
             <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
           </i>
         </a>";
-        echo "€ " . $row['largePrice']."<br>";
+        echo "</div>";
         echo "<br>";
         echo "<br>";
         echo "</div>";

@@ -20,17 +20,23 @@
         <use xlink:href="images/sprite.svg#menu"></use>
       </svg>
       <ul class="list nav__list collapsible__content">
+
         <?php
+        
         if (isset($_SESSION["userid"])) {
+          echo "<li class='nav__item'><a href='index.html'>Home</a></li>";
           echo "<li class='nav__item'><a href='shop.html'>Shop</a></li>";
+          echo "<li class='nav__item'><a href='shoppingCart.html'>Shopping Cart</a></li>";
           echo "<li class='nav__item'><a href='profile.php'>Profile Page</a></li>";
           echo "<li class='nav__item'><a href='includes/logout.inc.php'>Log Out</a></li>";
         }
         else {
+          echo "<li class='nav__item'><a href='index.html'>Home</a></li>";
           echo "<li class='nav__item'><a href='signup.php'>Sign Up</a></li>";
           echo "<li class='nav__item'><a href='login.php'>Log In</a></li>";
         }
       ?>
+
       </ul>
     </nav>
   </header>
