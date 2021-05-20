@@ -3,13 +3,35 @@
   include_once'header.php';
 ?>
 
+<input type = "button" onclick = "javascriptTest()" value = "JAVASCRIPT TEST">
+
 <body>
   <div>
     <h2>SHOP</h2>
   </div>
 
-  <div class="container">
+  <div>
+    <a href="shoppingCart.html">
+      <i>
+        <svg class="icon--cart"><use xlink:href="images/logoSprite.svg#shopping-cart"></use></svg>
+      </i>
+    </a>
+  </div>
 
+  
+  <section class="content-section">
+    <h2 class="section-header">CART</h2>
+    <div class="cart-row">
+      <span class="cart-item cart-header cart-column">ITEM</span>
+      <span class="cart-price cart-header cart-column">PRICE</span>
+      <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+    </div>
+    <div class="cart-items">
+
+    </div>
+  </section>
+
+  <div class="container">
     
     <!-- CONNECTIE MAKEN MET DE DB, ALLE GEBRUIKERS WEERGEVEN VAN DE TABEL USERS IN KRABPALEN -->
     <?php
@@ -24,20 +46,25 @@
   
       while ($row = mysqli_fetch_array($result)) {
 
-        echo "<div class='product'>";
+        echo "<div class='product-item'>";
+
+          echo "<span class='product-item-title'>";
+          echo $row['smallName']."<br>";
+          echo "</span>";
+
         $imgpath=$row['smallImage'];
-        echo "<img src='$imgpath' height='150' width='auto' alt='Image'><br>";
-        echo $row['smallName']."<br>";
-        echo $row['smallDescription']."<br>";
-        echo "<div class='product--buy'>";
-        echo "<p class='product--buy-price'>";
-        echo "\xE2\x82\xAc " . $row['smallPrice'];
-        echo "</p>";
-        echo "<a href='index.html'>
-          <i>
-            <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
-          </i>
-        </a>";
+        echo "<img class='product-item-image' src='$imgpath' height='150' width='auto' alt='Image'><br>"; 
+
+        echo "<div class='product-item-details'>";
+
+          echo "<span class='product-item-price'>";
+          echo "\xE2\x82\xAc " . $row['smallPrice']."<br>";
+          echo "</span>";
+
+        echo "<button class='btn btn-primary product-item-button' type='button'>
+          CLICK
+        </button>";
+
         echo "</div>";
         echo "<br>";
         echo "<br>";
@@ -115,4 +142,6 @@
     ?>
 
   </div>
+  <script src="js/main.js"></script>
+
   </html>

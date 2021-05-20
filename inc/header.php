@@ -36,7 +36,6 @@
           echo "<li class='nav__item'><a href='login.php'>Log In</a></li>";
         }
       ?>
-
       </ul>
     </nav>
   </header>
