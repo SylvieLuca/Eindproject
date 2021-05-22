@@ -1,7 +1,6 @@
-function javascriptTest()   
- {   
-console.log("JAVASCRIPT WERKT HIER");  
-         }  
+function javascriptTest() {
+  console.log("JAVASCRIPT WERKT HIER");  
+}  
 
 const collapsibles = document.querySelectorAll(".collapsible");
 collapsibles.forEach((item) =>
@@ -31,7 +30,7 @@ function addToCartClicked(event) {
 function addItemToCart(title, price, imageSrc) {
   var cartRow = document.createElement('div')
   cartRow.classList.add('cart-row')
-  var cartItems = document.getElementsByClassName('cart-items')[0]
+  var cartItems = document.getElementsByClassName('cart-items')[0]  
   var cartRowContents = `
     <div class="cart-item cart-column">
       <img class="cart-item-image" src="${imageSrc}" width="100"
