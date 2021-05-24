@@ -30,19 +30,19 @@
         saveCart();
       }
 
-      function removeItemFromCart(name) {
-        for (var i in cart) {
-          if (cart[i].name === name) {
-            cart[i].count--;
-            if (cart[i].count === 0) {
-              cart.splice(i, 1);
-            }
+        function removeItemFromCart(name) {
+          for (var i in cart) {
+            if (cart[i].name === name) {
+              cart[i].count--;
+              if (cart[i].count === 0) {
+                cart.splice(i, 1);
+              }
 
-            break;
+              break;
+            }
           }
+          saveCart();
         }
-        saveCart();
-      }
 
       function removeItemFromCartAll(name) {
         for (var i in cart) {
@@ -99,4 +99,3 @@
         cart = JSON.parse(localStorage.getItem("shoppingCart"));
       }
 
-      loadCart();

@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quetie and Smoetie's Quality Scratching</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  -->
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
@@ -19,6 +19,7 @@
       <svg class="icon icon--white nav__toggler">
         <use xlink:href="images/sprite.svg#menu"></use>
       </svg>
+      <title class="header__title">Quetie and Smoetie's Quality Scratching</title>
       <ul class="list nav__list collapsible__content">
 
         <?php
