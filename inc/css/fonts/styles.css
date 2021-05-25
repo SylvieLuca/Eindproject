@@ -1,13 +1,52 @@
+@font-face {
+  font-family: 'poppins';
+  src: url('fonts/poppins/poppins-regular-webfont.woff2') format('woff2'),
+       url('fonts/poppins/poppins-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'poppins';
+  src: url('fonts/poppins/poppins-bold-webfont.woff2') format('woff2'),
+       url('fonts/poppins/poppins-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'libreBaskerville';
+  src: url('fonts/libreBaskerville/librebaskerville-regular-webfont.woff2') format('woff2'),
+       url('fonts/libreBaskerville/librebaskerville-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'libreBaskerville';
+  src: url('fonts/libreBaskerville/librebaskerville-bold-webfont.woff2') format('woff2'),
+       url('fonts/libreBaskerville/librebaskerville-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
 :root {
-  --color-primary: #cc86b5;
-  --color-secondary: #2596BE;
-  --color-accent: #f9cac2;
+  --color-primary: #f49884;
+  --color-secondary: #fce48c;
+  --color-accent: #fcc484;
+  --color-decoration: #f48984;
   --color-headings: #1b0760;
   --color-body: #918ca4;
   --color-body-darker: #5c5577;
   --color-border: #ccc;
   --border-radius: 30px
 }
+
+
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -19,7 +58,7 @@ html {
 }
 
 body {
-  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
   font-size: 2.4rem;
   line-height: 1.5;
   color: var(--color-body);
@@ -32,7 +71,22 @@ h1, h2, h3 {
 }
 
 h1 {
+  font-family: "libreBaskerville", Arial, Helvetica, sans-serif;
   font-size: 7rem;
+}
+
+h1 span {
+  font-family: "libreBaskerville", Arial, Helvetica, sans-serif;
+  display: inline-block;
+}
+
+h1 span::first-letter {
+  color: var(--color-decoration);
+
+}
+
+h1 span:hover:first-letter {
+  color: var(--color-accent);
 }
 
 h2 {
@@ -54,7 +108,7 @@ p {
   }
   
   h1 {
-    font-size: 8rem;
+    font-size: 6rem;
   }
 
   h2 {
@@ -108,7 +162,7 @@ p {
   cursor: pointer;
   font-size: 1.8rem;
   font-weight: 600;
-  margin: 1rem;
+  margin: 5rem;
   padding: 2rem 3rem;
   text-align: center;
   text-transform: uppercase;
@@ -134,17 +188,17 @@ p {
 }
 
 .btn--accent {
-  background: var(--color-accent);
+  background: var(--color-decoration);
   color: #fff;
 }
 
 .btn--accent:hover {
-  background: lightcoral;
+  background: var(--color-accent);
 }
 
 /* Buttons that will fill their container */
 .btn--block {
-  width: 100%;
+  width: 75%;
   display: inline-block;
 }
 
@@ -156,6 +210,7 @@ p {
 }
 
 .btn--outline {
+  width: 175px;
   background: #fff;
   color: var(--color-headings);
   border: 2px solid var(--color-headings);
@@ -343,7 +398,7 @@ a {
 
 /* Plans */
 .plan {
-  transition: transform .2s ease-out;  
+  transition: transform .3s ease-out;  
 }
 
 .plan__name {
@@ -383,14 +438,6 @@ a {
   position: relative;
 }
 
-.plan--popular .card__header::before {
-  content: url(images/popular.svg);
-  width: 40px;
-  display: inline-block;
-  position: absolute;
-  top: -6px;
-  right: 5%;
-}
 
 .plan:hover {
   transform: scale(1.05);
@@ -398,6 +445,10 @@ a {
 
 .plan--popular:hover {
   transform: scale(1.15);
+}
+
+.plan--image {
+  max-width: 350px;
 }
 
 /* Plans for bigger screens */
@@ -506,6 +557,12 @@ a {
 @media screen and (min-width: 768px) {
   .grid--1x2 {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid--2x1 {
+    grid-template-rows: 1fr 5fr;
   }
 }
 
@@ -631,6 +688,15 @@ a {
   margin-bottom: 4rem;
 }
 
+.block__header button {
+  margin: 0;
+}
+
+.block__h1 {
+  margin-top: 0;
+  margin-bottom: 5rem;
+}
+
 .block__heading {
   margin-top: 0;
 }
@@ -646,12 +712,12 @@ a {
 
 .block--skewed-right{
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 70%);
 }
 
 .block--skewed-left{
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
 }
 
 /* Navigation Bar */
@@ -679,12 +745,12 @@ a {
 }
 
 .nav__item>a {
-  color: #d2d0db;
+  color: #fff;
   transition: color 0.3s;
 }
 
 .nav__item>a:hover {
-  color: #fff;
+  color: #fcc484;
 }
 
 .nav__item.active {
@@ -706,6 +772,7 @@ a {
 .nav__brand {
   transform: translateY(5px);
   width: auto;
+  padding-left: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -747,14 +814,14 @@ a {
     padding-top: 0;
   }
   .hero__content {
-    text-align: left;
+    text-align: center;
     align-self: center;
   }
 }
 
 /* Footer */
 .footer {
-  background: #232323;
+  background: #000;
 }
 
 .footer a {
@@ -840,6 +907,7 @@ a {
   height: auto;
 }
 
+/* Product */
 .product {
   margin: 10px;
   text-align: center;
@@ -857,4 +925,3 @@ a {
 .product--buy-price {
 align-self: center;
 margin-block-end: 0px;
-}
