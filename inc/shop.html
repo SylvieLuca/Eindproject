@@ -5,6 +5,23 @@
 
 <!-- <input type = "button" onclick = "javascriptTest()" value = "JAVASCRIPT TEST"> -->
 
+<?php
+echo "SL Message from shop: ";
+print_r($_SESSION);
+echo "<br>";
+//Create $_SESSION variable if it doesn't exist already
+if (!isset($_SESSION['cart'])) {
+  $_SESSION['cart'] = array();
+
+
+} 
+
+
+echo "<pre> ";
+echo "The ['cart'] session is this array: ";
+print_r($_SESSION['cart']);
+echo "</pre>";
+?>
 
 
   <div>
@@ -21,7 +38,7 @@
     require_once 'includes/dbh.inc.php';
     global $conn;
 
-    $sql = "SELECT * FROM small";
+    $sql = "SELECT * FROM products ORDER BY productsId";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 
@@ -31,95 +48,27 @@
 
         echo "<div class='product-item'>";
           
-          $id = $row['Id'];
+          $id = $row['productsId'];
           echo "<input type='hidden' class='product-id' value='$id'>";
           echo "</input>";
 
           echo "<span class='product-name'>";
-          echo $row['smallName']."<br>";
+          echo $row['productsName']."<br>";
           echo "</span>";
 
-          $imgpath=$row['smallImage'];
+          $imgpath=$row['productsImage'];
           echo "<img class='product-image' src='$imgpath' height='150' width='auto' alt='Image'><br>"; 
 
           echo "<div class='product-details'>";
 
           echo "<span class='product-price'>";
-          echo "\xE2\x82\xAc " . $row['smallPrice']."<br>";
+          echo "\xE2\x82\xAc " . $row['productsPrice']."<br>";
           echo "</span>";
 
         echo "<button class='btn btn--primary buy-button' type='button'>
           BUY
         </button>";
 
-        echo "</div>";
-        echo "<br>";
-        echo "<br>";
-        echo "</div>";
-      }
-    }
-    ?>
-
-    <?php
-    require_once 'includes/dbh.inc.php';
-    global $conn;
-
-    $sql = "SELECT * FROM medium";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if($resultCheck > 0) {
-  
-      while ($row = mysqli_fetch_array($result)) {
-
-        echo "<div class='product'>";
-        $imgpath=$row['mediumImage'];
-        echo "<img src='$imgpath' height='150' width='auto' alt='Image'><br>";
-        echo $row['mediumName']."<br>";
-        echo $row['mediumDescription']."<br>";
-        echo "<div class='product--buy'>";
-        echo "<p class='product--buy-price'>";
-        echo "\xE2\x82\xAc " . $row['mediumPrice'];
-        echo "</p>";
-        echo "<a href='index.html'>
-          <i>
-            <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
-          </i>
-        </a>";
-        echo "</div>";
-        echo "<br>";
-        echo "<br>";
-        echo "</div>";
-      }
-    }
-    ?>
-
-    <?php
-    require_once 'includes/dbh.inc.php';
-    global $conn;
-
-    $sql = "SELECT * FROM large";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if($resultCheck > 0) {
-  
-      while ($row = mysqli_fetch_array($result)) {
-
-        echo "<div class='product'>";
-        $imgpath=$row['largeImage'];
-        echo "<img src='$imgpath' height='150' width='auto' alt='Image'><br>";
-        echo $row['largeName']."<br>";
-        echo $row['largeDescription']."<br>";
-        echo "<div class='product--buy'>";
-        echo "<p class='product--buy-price'>";
-        echo "\xE2\x82\xAc " . $row['largePrice'];
-        echo "</p>";
-        echo "<a href='index.html'>
-          <i>
-            <svg class='icon--buy'><use xlink:href='images/logoSprite.svg#shopping-cart'></use></svg>
-          </i>
-        </a>";
         echo "</div>";
         echo "<br>";
         echo "<br>";
