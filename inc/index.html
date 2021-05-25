@@ -3,23 +3,27 @@
 ?>
 <body>
 
-    <section class="block block--dark block--skewed-left hero">
-      <div class="grid grid--1x2">
-        <header class="block__header hero__content">
-          <h1 class="block__heading"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
+<!--   <?php
+    $_SESSION['favcolor'] = "green";
+    $_SESSION['favanimal'] = "cat";
+    echo "Session variables " . $_SESSION['favcolor'] . " and " . $_SESSION['favanimal'] . " are set <br>";
+    echo "SL Message from index page: Favorite color is " . $_SESSION["favcolor"] . ".<br>";
+  ?> -->
+
+    <section class="block block--dark block--skewed-left">
+      <div class="grid">
+        <header class="block__header ">
+          <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
           <div>
           <a href="login.php" class="btn btn--accent btn--stretched">Log In</a>
           <a href="signup.php" class="btn btn--accent btn--stretched">Register</a>
         </div>  
         </header>
-        <img class="hero__image" src="images/1.jpg" alt="" />
       </div>
     </section>
-</section>
 
 <section class="block mContainer block-plans">
   <div class="grid grid--1x3">
-
     <div class="plan">
       <div class="card card--primary">
         <header class="card__header">
@@ -47,7 +51,6 @@
       </div>
     </div>
 
-
     <div class="plan">
       <div class="card card--primary">
         <header class="card__header">
@@ -60,10 +63,17 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
+<section class="block block--dark block--skewed-left">
+  <div class="grid">
+      <header class="block__header">
+        <h3 class="block__heading">Be notified on new arrivals and discounts?</h3>
+        <button class="btn btn--accent btn--outline"><span>Yes, please!</span></button>
+      </header>
+  </div>
+</section>
 
 <footer class="block block--dark footer">
   <div class="mContainer grid footer__sections">

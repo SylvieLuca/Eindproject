@@ -1,5 +1,6 @@
 <?php 
   session_start();
+  // echo "SL Message inside header: php session started";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,17 +14,22 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
+    
   <header>
     <nav class="nav collapsible">
+    <ul class="list nav__list collapsible__content">
+        <?php
+          echo "<li class='nav__item'><a href='contact.html'>Contact</a></li>";
+          echo "<li class='nav__item'><a href='about.html'>About</a></li>";
+      ?>
+      </ul>
       <a class="nav__brand" href="index.html"><img class="link__logo" src="images/logoSmall.png" alt="Quetie and Smoetie's Quality Scratching Logo" /></a>
       <svg class="icon icon--white nav__toggler">
         <use xlink:href="images/sprite.svg#menu"></use>
       </svg>
       <title class="header__title">Quetie and Smoetie's Quality Scratching</title>
       <ul class="list nav__list collapsible__content">
-
         <?php
-        
         if (isset($_SESSION["userid"])) {
           echo "<li class='nav__item'><a href='index.html'>Home</a></li>";
           echo "<li class='nav__item'><a href='shop.html'>Shop</a></li>";
