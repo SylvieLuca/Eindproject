@@ -1,6 +1,6 @@
-/* function javascriptTest() {
+function javascriptTest() {
   console.log("JAVASCRIPT WERKT HIER");  
-}   */
+}  
 
 const collapsibles = document.querySelectorAll(".collapsible");
 collapsibles.forEach((item) =>
@@ -14,6 +14,25 @@ collapsibles.forEach((item) =>
 console.log("TEST");
 var x = Array.from(document.querySelectorAll("div"));
 console.log ("Aantal div's op deze pagina: " +   x.length);
+
+/* -------------------------------SUBSCRIBE BUTTON------------------------------------------------ */
+
+const toggleModal = () => {
+  document.querySelector('.modal')
+    .classList.toggle('modal--hidden');
+};
+
+document.querySelector('.show-modal')
+  .addEventListener('click', toggleModal);
+
+document.querySelector('#learn-more')
+  .addEventListener('submit', (event) => {
+    event.preventDefault();
+  toggleModal();
+});
+
+document.querySelector('.modal__close-bar span')
+  .addEventListener('click', toggleModal);
 
 /* -------------------------------ITEM TOEVOEGEN------------------------------------------------- */
 
@@ -74,6 +93,7 @@ function addItemToCart(item) {
       }
     }
     var item = new Item(item.id, item.name, item.price, item.image, item.count);
+
   console.log("Bij het aanmaken van het nieuwe item is de id: " + item.id);
   console.log("Bij het aanmaken van het nieuwe item is de name: " + item.name);
   console.log("Bij het aanmaken van het nieuwe item is de price: " + item.price);
@@ -81,7 +101,7 @@ function addItemToCart(item) {
   console.log("Bij het aanmaken van het nieuwe item is de count: " + item.count);
 
     cart.push(item);
-    
+
     var cartRowContents = `
     <div class="cart-item">
       <span class="cart-item-id">${item.id}</span>
@@ -94,12 +114,16 @@ function addItemToCart(item) {
       <input class="cart-quantity-input-${item.id}" type="number" value="${item.count}">
       <button class="btn btn-remove" type="button">REMOVE</button>
     </div>`
+
+
+
     console.log("De JSON van cartRowContents: " + JSON.stringify(cartRowContents));
-    localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
-    var ul = document.getElementById('show-cart');
-    var li = document.createElement("li");
-    li.innerHTML += cartRowContents;
-    ul.appendChild(li);
+
+    // localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
+    // var ul = document.getElementById('show-cart');
+    // var li = document.createElement("li");
+    // li.innerHTML += cartRowContents;
+    // ul.appendChild(li);
     //saveCart();
 
     console.log("Mijn cart is gevuld met: " + cart[0].count);

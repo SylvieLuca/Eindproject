@@ -10,6 +10,7 @@
     echo "SL Message from index page: Favorite color is " . $_SESSION["favcolor"] . ".<br>";
   ?> -->
 
+  
     <section class="block block--dark block--skewed-left">
       <div class="grid">
         <header class="block__header ">
@@ -70,10 +71,25 @@
   <div class="grid">
       <header class="block__header">
         <h3 class="block__heading">Be notified on new arrivals and discounts?</h3>
-        <button class="btn btn--accent btn--outline"><span>Yes, please!</span></button>
+        <div class="content">
+        <button class="btn btn--accent btn--outline show-modal"><span>Yes, please!</span></button>
+      </div>
       </header>
   </div>
 </section>
+
+<div class="modal modal--hidden">
+  <div class="modal__contents">
+    <div class="modal__close-bar">
+      <span>&times;</span>
+    </div>
+    <p>Please enter your email address to find out more</p>
+    <form id="learn-more">
+      <input type="email" placeholder="Your email address">
+        <button>Submit</button>
+    </form>
+  </div>
+</div>
 
 <footer class="block block--dark footer">
   <div class="mContainer grid footer__sections">
@@ -151,11 +167,12 @@
   </div>
 </footer>
 
+<script src="js/main.js"></script>
 
 </body>
 
-  <?php
-    if (isset($_SESSION["userid"])) {
-      echo "<p>Hello there, " . $_SESSION["useruid"] . "</p>";
-    }
-  ?>
+<?php
+if (isset($_SESSION["userid"])) {
+  echo "<p>Hello there, " . $_SESSION["firstname"] ."</p>";
+}
+?>
