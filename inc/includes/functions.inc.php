@@ -1,8 +1,8 @@
 <?php
 
-function emtpyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
+function emtpyInputSignup($firstName, $lastName, $email, $username, $pwd, $pwdRepeat) {
 	$result;
-	if (empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
+	if (empty($firstName) || empty($lastName) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
 		$result = true;
 	}
 	else {
@@ -69,8 +69,8 @@ function uidExists($conn, $username) {
 
 }
 
-function createUser($conn, $name, $email, $username, $pwd) {
-	$sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
+function createUser($conn, $firstName, $lastName, $email, $username, $pwd) {
+	$sql = "INSERT INTO users (usersFirstName, usersLastName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?);";
 	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header ("location: ../signup.php?error=stmtfailed");
@@ -79,7 +79,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
 
 	$hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-	mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
+	mysqli_stmt_bind_param($stmt, "sssss", $firstName, $lastName, $email, $username, $hashedPwd);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
 	header ("location: ../signup.php?error=none");
@@ -110,15 +110,21 @@ function loginUser($conn, $username, $pwd) {
 	$checkPwd = password_verify($pwd, $pwdHashed);
 
 	if ($checkPwd === false) {
-		header ("location: ../login.php?error=wronglogin");
+		header ("location: ../login.php?error=wrongpassword");
 		exit();
 	}
 	else if ($checkPwd === true) {
 		session_start();
 		$_SESSION["userid"] = $uidExists["usersId"];
 		$_SESSION["useruid"] = $uidExists["usersUid"];
+		$_SESSION["firstname"] = $uidExists["usersFirstName"];
 		header ("location: ../profile.php");
 		exit();
 	}
 }
+
+
+
+
+
 

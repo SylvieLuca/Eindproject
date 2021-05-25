@@ -6,7 +6,8 @@
   <h2>Sign Up</h2>
   <div>
     <form action="includes/signup.inc.php" method="post">
-      <input type="text" name="name" placeholder="Full name...">
+      <input type="text" name="firstName" placeholder="First name...">
+      <input type="text" name="lastName" placeholder="Last name...">
       <input type="text" name="email" placeholder="Email...">
       <input type="text" name="uid" placeholder="Username...">
       <input type="password" name="pwd" placeholder="Password...">

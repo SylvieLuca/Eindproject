@@ -3,7 +3,8 @@
 //Is de gebruiker op de juiste manier naar deze pagina gekomen
 if (isset($_POST["submit"])) {
 
-  $name = $_POST["name"];
+  $firstName = $_POST["firstName"];
+  $lastName = $_POST["lastName"];
   $email = $_POST["email"];
   $username = $_POST["uid"];
   $pwd = $_POST["pwd"];
@@ -12,7 +13,7 @@ if (isset($_POST["submit"])) {
   require_once 'dbh.inc.php';
   require_once 'functions.inc.php';
 
-  if (emtpyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false) {
+  if (emtpyInputSignup($firstName, $lastName, $email, $username, $pwd, $pwdRepeat) !== false) {
     header("location: ../signup.php?error=emtpyinput");
     exit();
   }
@@ -37,7 +38,7 @@ if (isset($_POST["submit"])) {
     exit();
   }
 
-  createUser($conn, $name, $email, $username, $pwd);
+  createUser($conn, $firstName, $lastName, $email, $username, $pwd);
 
 }
 else {
