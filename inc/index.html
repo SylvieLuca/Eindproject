@@ -10,11 +10,11 @@
     echo "SL Message from index page: Favorite color is " . $_SESSION["favcolor"] . ".<br>";
   ?> -->
 
-  
     <section class="block block--dark block--skewed-left">
       <div class="grid">
         <header class="block__header ">
           <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
+          <p>Please register to visit our webshop</p>
           <div>
           <a href="login.php" class="btn btn--accent btn--stretched">Log In</a>
           <a href="signup.php" class="btn btn--accent btn--stretched">Register</a>
@@ -23,7 +23,7 @@
       </div>
     </section>
 
-<section class="block mContainer block-plans">
+<section class="block block-plans">
   <div class="grid grid--1x3">
     <div class="plan">
       <div class="card card--primary">
@@ -83,7 +83,7 @@
     <div class="modal__close-bar">
       <span class="closeBtn">&times;</span>
     </div>
-    <p>Please enter your email address to find out more</p>
+    <p class="p--modal">Please enter your email address to subscribe to our newsletter</p>
     <form id="learn-more">
       <input type="email" placeholder="Your email address">
         <button class="submitBtn">Submit</button>
@@ -91,23 +91,50 @@
   </div>
 </div>
 
-<footer class="block block--dark footer">
-  <div class="mContainer grid footer__sections">
-    <section class="collapsible collapsible--expanded footer__section">
-      <header class="collapsible__header">
-        <h2 class="collapsible__heading footer__heading">Products</h2>
-        <svg class="icon icon--white collapsible__chevron">
-          <use xlink:href="images/sprite.svg#chevron"></use>
-        </svg>
-      </header>
-      <div class="collapsible__content">
-        <ul class="list">
-          <li><a href="#">Website Hosting</a></li>
-          <li><a href="#">Free Automated Wordpress</a></li>
-          <li><a href="#">Migrations</a></li>
-        </ul>
+<section class="block">
+  <header class="block__header">
+    <h2>Customer Reviews</h2>
+    <p class="block__text">What our customers say about us</p>
+  </header>
+  <div>
+    <div class="card testimonial">
+      <div class="grid grid--1x2">
+        <div class="testimonial__image">
+          <img src="images/testimonial.jpg" alt="A happy smiling customer" />
+          <span class="icon-container icon-container--accent">
+            <svg class="icon icon--white icon--small">
+              <use xlink:href="images/sprite.svg#quotes"></use>
+            </svg>
+          </span>
+        </div>
+        <blockquote class="quote">
+          <p class="quote__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+            exercitationem nesciunt perferendis dignissimos sunt nobis eaque
+            harum mollitia ipsa eveniet.
+          </p>
+          <footer>
+            <div class="media">
+              <div class="media__image">
+                <svg class="icon icon--primary quote__line">
+                  <use xlink:href="images/sprite.svg#line"></use>
+                </svg>
+              </div>
+              <div class="media__body">
+                <h3 class="media__title quote__author">John Smith</h3>
+                <p class="quote__organization">ABC Company</p>
+              </div>
+            </div>
+          </footer>
+        </blockquote>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
+<footer class="block block--dark footer">
+  <div class="grid footer__sections">
 
     <section class="collapsible footer__section">
       <header class="collapsible__header">
@@ -124,6 +151,24 @@
         </ul>
       </div>
     </section>
+
+    <section class="collapsible collapsible--expanded footer__section">
+      <header class="collapsible__header">
+        <h2 class="collapsible__heading footer__heading">Products</h2>
+        <svg class="icon icon--white collapsible__chevron">
+          <use xlink:href="images/sprite.svg#chevron"></use>
+        </svg>
+      </header>
+      <div class="collapsible__content">
+        <ul class="list">
+          <li><a href="#">Website Hosting</a></li>
+          <li><a href="#">Free Automated Wordpress</a></li>
+          <li><a href="#">Migrations</a></li>
+        </ul>
+      </div>
+    </section>
+
+
 
     <section class="collapsible footer__section">
       <header class="collapsible__header">
@@ -142,18 +187,11 @@
     </section>
 
     <section class="collapsible footer__section">
-      <header class="collapsible__header">
-        <h2 class="collapsible__heading footer__heading">Domains</h2>
-        <svg class="icon icon--white collapsible__chevron">
-          <use xlink:href="images/sprite.svg#chevron"></use>
-        </svg>
-      </header>
-      <div class="collapsible__content">
-        <ul class="list">
-          <li><a href="#">Domain Checker</a></li>
-          <li><a href="#">Domain Transfer</a></li>
-          <li><a href="#">Free Domain</a></li>
-        </ul>
+      <div class="socialMedia">
+        <span class="bg-icons8-facebook-50"></span>
+        <span class="bg-icons8-instagram-50"></span>
+        <span class="bg-icons8-reddit-50"></span>
+        <span class="bg-icons8-twitter-50"></span>
       </div>
     </section>
 
@@ -162,9 +200,16 @@
         src="images/logoSmall.png"
         alt="Quetie and Smoetie's Quality Scratching Logo"
       />
-      <p class="footer__copyright">Copyright 2021 Sylvie Luca</p>
+      <p class="footer__copyright">Copyright <?php echo date("Y"); ?> - Sylvie Luca</p>
     </section>
+
   </div>
+  
+  <div class="privacyAndTerms">
+    <a href="https://www.freeprivacypolicy.com/live/d19021ec-2542-43c2-899f-a7942c59718d">Privacy Policy</a>
+    <a href="https://www.freeprivacypolicy.com/live/cd687b27-9b46-4c3e-8ba9-69d6aef2cc0d">Terms & Conditions</a>
+    </div>
+
 </footer>
 
 <script src="js/main.js"></script>
