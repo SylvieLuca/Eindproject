@@ -1,6 +1,6 @@
-function javascriptTest() {
-  console.log("JAVASCRIPT WERKT HIER");  
-}  
+// function javascriptTest() {
+//   console.log("JAVASCRIPT WERKT HIER");  
+// }  
 
 const collapsibles = document.querySelectorAll(".collapsible");
 collapsibles.forEach((item) =>
@@ -11,28 +11,28 @@ collapsibles.forEach((item) =>
 
 /* -------------------------------JAVASCRIPT TEST------------------------------------------------ */
 
-console.log("TEST");
-var x = Array.from(document.querySelectorAll("div"));
-console.log ("Aantal div's op deze pagina: " +   x.length);
+// console.log("TEST");
+// var x = Array.from(document.querySelectorAll("div"));
+// console.log ("Aantal div's op deze pagina: " +   x.length);
 
 /* -------------------------------SUBSCRIBE BUTTON------------------------------------------------ */
 
-const toggleModal = () => {
-  document.querySelector('.modal')
-    .classList.toggle('modal--hidden');
-};
+// const toggleModal = () => {
+//   document.querySelector('.modal')
+//     .classList.toggle('modal--hidden');
+// };
 
-document.querySelector('.show-modal')
-  .addEventListener('click', toggleModal);
+// document.querySelector('.show-modal')
+//   .addEventListener('click', toggleModal);
 
-document.querySelector('#learn-more')
-  .addEventListener('submit', (event) => {
-    event.preventDefault();
-  toggleModal();
-});
+// document.querySelector('#learn-more')
+//   .addEventListener('submit', (event) => {
+//     event.preventDefault();
+//   toggleModal();
+// });
 
-document.querySelector('.modal__close-bar span')
-  .addEventListener('click', toggleModal);
+// document.querySelector('.modal__close-bar span')
+//   .addEventListener('click', toggleModal);
 
 /* -------------------------------ITEM TOEVOEGEN------------------------------------------------- */
 
@@ -50,7 +50,6 @@ class Item {
 
 /* Voegt aan alle BUY-BUTTONS een eventlistener toe die geactiveerd wordt bij clicked */
 var addToCartButtons = document.getElementsByClassName('buy-button');
-console.log("Buy-buttons on this page: " + addToCartButtons.length);
 for (var i = 0; i < addToCartButtons.length; i++) {
   var button = addToCartButtons[i]
   button.addEventListener('click', addToCartClicked)
@@ -82,7 +81,6 @@ Een unordered list wordt gemaakt en per item voegen we een nieuw listitem aan di
 function addItemToCart(item) {
   
     // loadCart();
-
     for (var i in cart) {
       if (cart[i].name === item.name) {
         cart[i].count +=1;
@@ -94,11 +92,7 @@ function addItemToCart(item) {
     }
     var item = new Item(item.id, item.name, item.price, item.image, item.count);
 
-  console.log("Bij het aanmaken van het nieuwe item is de id: " + item.id);
-  console.log("Bij het aanmaken van het nieuwe item is de name: " + item.name);
-  console.log("Bij het aanmaken van het nieuwe item is de price: " + item.price);
-  console.log("Bij het aanmaken van het nieuwe item is de image: " + item.image);
-  console.log("Bij het aanmaken van het nieuwe item is de count: " + item.count);
+  console.log("Bij het aanmaken van het nieuwe item is ID: " + item.id + "\nNAME " + item.name + "\nPRICE " + item.price + "\nIMAGE " + item.image + "\nCOUNT " + item.count);
 
     cart.push(item);
 
@@ -115,26 +109,22 @@ function addItemToCart(item) {
       <button class="btn btn-remove" type="button">REMOVE</button>
     </div>`
 
+    console.log("JSON: " + JSON.stringify(cartRowContents));
 
-
-    console.log("De JSON van cartRowContents: " + JSON.stringify(cartRowContents));
-
-    // localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
-    // var ul = document.getElementById('show-cart');
-    // var li = document.createElement("li");
-    // li.innerHTML += cartRowContents;
-    // ul.appendChild(li);
+    localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
+    var ul = document.getElementById('show-cart');
+    var li = document.createElement("li");
+    li.innerHTML += cartRowContents;
+    ul.appendChild(li);
     //saveCart();
 
     console.log("Mijn cart is gevuld met: " + cart[0].count);
-  
 }
 
 /* ---------------------------------------ITEM VERWIJDEREN-------------------------------------------- */
 
 /* TODO: juiste div verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
 var removeCartItemButtons = document.getElementsByClassName('btn-remove');
-console.log("Remove-buttons on this page: " + removeCartItemButtons.length);
 for (var i = 0; i < removeCartItemButtons.length; i++) {
   var button = removeCartItemButtons[i];
   button.addEventListener('click', function(event) {
@@ -148,7 +138,6 @@ for (var i = 0; i < removeCartItemButtons.length; i++) {
 
 /* TODO: juiste div's verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
 var removeCartItemButtons = document.getElementsByClassName('btn-remove');
-console.log("Remove-buttons on this page: " + removeCartItemButtons.length);
 for (var i = 0; i < removeCartItemButtons.length; i++) {
   var button = removeCartItemButtons[i];
   button.addEventListener('click', function(event) {
