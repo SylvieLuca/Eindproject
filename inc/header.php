@@ -1,5 +1,6 @@
 <?php 
   session_start();
+  
   // echo "SL Message inside header: php session started";
 ?>
 <!DOCTYPE html>
