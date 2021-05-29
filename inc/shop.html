@@ -3,7 +3,7 @@
   include_once'header.php';
 ?>
 
-<!-- <input type = "button" onclick = "javascriptTest()" value = "JAVASCRIPT TEST"> -->
+<input type = "button" onclick = "javascriptTest()" value = "JAVASCRIPT TEST">
 
 <?php
 echo "SL Message from shop: ";
@@ -13,16 +13,21 @@ echo "<br>";
 if (!isset($_SESSION['cart'])) {
   $_SESSION['cart'] = array();
 
-
 } 
-
 
 echo "<pre> ";
 echo "The ['cart'] session is this array: ";
 print_r($_SESSION['cart']);
 echo "</pre>";
-?>
 
+if(isset($_SESSION['count'])) {
+  echo "your session count: ". $_SESSION['count']."<br>";
+  $_SESSION['count']++;
+} else {
+  $_SESSION['count'] = 1;
+  echo "Session does not exist";
+}
+?>
 
   <div>
     <ul id="show-cart">

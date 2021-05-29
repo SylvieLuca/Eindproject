@@ -1,6 +1,6 @@
-// function javascriptTest() {
-//   console.log("JAVASCRIPT WERKT HIER");  
-// }  
+function javascriptTest() {
+  console.log("JAVASCRIPT WERKT HIER");  
+}  
 
 const collapsibles = document.querySelectorAll(".collapsible");
 collapsibles.forEach((item) =>
@@ -11,28 +11,28 @@ collapsibles.forEach((item) =>
 
 /* -------------------------------JAVASCRIPT TEST------------------------------------------------ */
 
-// console.log("TEST");
-// var x = Array.from(document.querySelectorAll("div"));
-// console.log ("Aantal div's op deze pagina: " +   x.length);
+console.log("TEST - AANTAL ELEMENTEN OP PAGINA - TEST");
+var x = Array.from(document.querySelectorAll("div"));
+var y = Array.from(document.getElementsByClassName("buy-button"));
+var z = Array.from(document.getElementsByClassName("product-item"));
+console.log ("Aantal div's op deze pagina: " +   x.length);
+console.log ("Aantal buy-buttons op deze pagina: " + y.length);
+console.log ("Aantal product-items op deze pagina: " + z.length);
 
-/* -------------------------------SUBSCRIBE BUTTON------------------------------------------------ */
+/* -------------------------------SHOW PASSWORD------------------------------------------------ */
 
-const toggleModal = () => {
-  document.querySelector('.modal')
-    .classList.toggle('modal--hidden');
-};
+function showPassword() {
+  console.log("myFunction is gestart");
+  var x = document.getElementById("myInput");
+  console.log(x);
+  console.log(x.type);
 
-document.querySelector('.show-modal')
-  .addEventListener('click', toggleModal);
-
-document.querySelector('#learn-more')
-  .addEventListener('submit', (event) => {
-    event.preventDefault();
-  toggleModal();
-});
-
-document.querySelector('.modal__close-bar span')
-  .addEventListener('click', toggleModal);
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 
 /* -------------------------------ITEM TOEVOEGEN------------------------------------------------- */
 
@@ -50,6 +50,7 @@ class Item {
 
 /* Voegt aan alle BUY-BUTTONS een eventlistener toe die geactiveerd wordt bij clicked */
 var addToCartButtons = document.getElementsByClassName('buy-button');
+console.log("Er zijn " + addToCartButtons.length + " buy-buttons op deze pagina");
 for (var i = 0; i < addToCartButtons.length; i++) {
   var button = addToCartButtons[i]
   button.addEventListener('click', addToCartClicked)
@@ -58,6 +59,7 @@ for (var i = 0; i < addToCartButtons.length; i++) {
 /* Selecteert de geklikte button, zoekt parent van parent om het product te kennen, neemt van dat product id, name, price en image. 
 Met die gegevens en met count = 1 maken we een new Item en voegen dat item toe aan de cart. */
 function addToCartClicked(event) {
+  console.log("BUY BUTTON WAS CLICKED");
   var button = event.target
   var productItem = button.parentElement.parentElement
   console.log("het productItem is " + productItem);
@@ -204,3 +206,22 @@ function listCart() {
   }
   return cartCopy;
 }
+
+//   /* -------------------------------SUBSCRIBE BUTTON------------------------------------------------ */
+
+// const toggleModal = () => {
+//   document.querySelector('.modal')
+//     .classList.toggle('modal--hidden');
+// };
+
+// document.querySelector('.show-modal')
+//   .addEventListener('click', toggleModal);
+
+// document.querySelector('#learn-more')
+//   .addEventListener('submit', (event) => {
+//     event.preventDefault();
+//   toggleModal();
+// });
+
+// document.querySelector('.modal__close-bar span')
+//   .addEventListener('click', toggleModal);

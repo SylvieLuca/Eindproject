@@ -48,7 +48,7 @@
         name="pwdrepeat"
         placeholder="Repeat password"
       />
-      <button class="mybutton" type="submit" name="submit">Sign Up</button>
+      <button class="btn btn--accent" type="submit" name="submit">Sign Up</button>
       </form>
       </div>
 
