@@ -36,7 +36,7 @@
               pattern=".{6,}"
               required
         />
-        <span class="icon"></span>
+        <span class="passwordIcon"></span>
       </div>
       
       <div class="pwd-show">
@@ -44,7 +44,7 @@
         <span class="pwd-show-text">Show Password</span>
       </div>
 
-      <button class="btn btn--accent" type="submit" name="submit">Log In</button>
+      <button class="btn btn--accent form--button" type="submit" name="submit">Log In</button>
       
       <script src="js/main.js"></script>
     

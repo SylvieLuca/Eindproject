@@ -39,7 +39,7 @@
         pattern=".{6,}"
         required
       />
-      <span class="icon"></span>
+      <span id="icon"></span>
     </div>
 
       <input
@@ -48,7 +48,7 @@
         name="pwdrepeat"
         placeholder="Repeat password"
       />
-      <button class="btn btn--accent" type="submit" name="submit">Sign Up</button>
+      <button class="btn btn--accent form--button" type="submit" name="submit">Sign Up</button>
       </form>
       </div>
 
