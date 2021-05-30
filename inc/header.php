@@ -10,9 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quetie and Smoetie's Quality Scratching</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon"> 
     <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     
@@ -23,6 +24,13 @@
           echo "<li class='nav__item'><a href='contact.html'>Contact</a></li>";
           echo "<li class='nav__item'><a href='about.html'>About</a></li>";
       ?>
+
+    <!-- <div class="searchContainer">
+      <div id="searchWrapper">
+        <input type="text" name="searchBar" id="searchBar" placeholder="Search">
+      </div>
+    </div> -->
+
       </ul>
       <a class="nav__brand" href="index.html"><img class="link__logo" src="images/logoSmall.png" alt="Quetie and Smoetie's Quality Scratching Logo" /></a>
       <svg class="icon icon--white nav__toggler">
@@ -35,7 +43,6 @@
           echo "<li class='nav__item'><a href='index.html'>Home</a></li>";
           echo "<li class='nav__item'><a href='shop.html'>Shop</a></li>";
           echo "<li class='nav__item'><a href='shoppingCart.html'>Shopping Cart</a></li>";
-          echo "<li class='nav__item'><a href='profile.php'>Profile Page</a></li>";
           echo "<li class='nav__item'><a href='includes/logout.inc.php'>Log Out</a></li>";
         }
         else {

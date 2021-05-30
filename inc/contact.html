@@ -29,20 +29,37 @@
     </div>
 
     <div class="contact-form">
-      <h2>Contact Us</h2>
+      <h2>CONTACT US</h2>
 
       <form>
-        <input type="text" placeholder="Name" class="contact-form-txt" />
-        <input type="email" placeholder="Email" class="contact-form-txt" />
+        <input
+          class="box contact-form-txt"
+          type="text"
+          name="name"
+          placeholder="Name"
+        />
+        <input
+          class="box contact-form-txt"
+          type="email"
+          name="email"
+          placeholder="Email"
+        />
 
         <textarea
           class="contact-form-txtarea"
+          name="message"
           cols="30"
           rows="10"
           placeholder="Message"
         ></textarea>
 
-        <button class="submitBtn contact-form-btn">Send Message</button>
+        <button
+          class="btn btn--accent contact-form-btn"
+          type="submit"
+          name="submit"
+        >
+          Send Message
+        </button>
       </form>
     </div>
   </div>
