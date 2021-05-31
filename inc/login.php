@@ -56,10 +56,10 @@
   <?php
 if (isset($_GET["error"])) {
   if ($_GET["error"] == "emptyinput") {
-    echo "<p>Fill in all fields</p>";
+    echo "<p class='dbMessage'>Fill in all fields</p>";
   }
   else if ($_GET["error"] == "wronglogin") {
-    echo "<p>Incorrect login information</p>";
+    echo "<p class='dbMessage'>Incorrect login information</p>";
   }
 }
 ?>

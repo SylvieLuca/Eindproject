@@ -1,6 +1,19 @@
+
+/* -------------------------------JAVASCRIPT TESTS------------------------------------------------ */
+
 function javascriptTest() {
   console.log("JAVASCRIPT WERKT HIER");  
 }  
+
+console.log("TEST - AANTAL ELEMENTEN OP PAGINA - TEST");
+let x = Array.from(document.querySelectorAll("div"));
+let y = Array.from(document.getElementsByClassName("buy-button"));
+let z = Array.from(document.getElementsByClassName("product-item"));
+console.log ("Aantal div's op deze pagina: " +   x.length);
+console.log ("Aantal buy-buttons op deze pagina: " + y.length);
+console.log ("Aantal product-items op deze pagina: " + z.length);
+
+/* -------------------------------HEADER & FOOTER COLLAPSIBLES------------------------------------------------ */
 
 const collapsibles = document.querySelectorAll(".collapsible");
 collapsibles.forEach((item) =>
@@ -9,21 +22,11 @@ collapsibles.forEach((item) =>
   })
 );
 
-/* -------------------------------JAVASCRIPT TEST------------------------------------------------ */
-
-console.log("TEST - AANTAL ELEMENTEN OP PAGINA - TEST");
-var x = Array.from(document.querySelectorAll("div"));
-var y = Array.from(document.getElementsByClassName("buy-button"));
-var z = Array.from(document.getElementsByClassName("product-item"));
-console.log ("Aantal div's op deze pagina: " +   x.length);
-console.log ("Aantal buy-buttons op deze pagina: " + y.length);
-console.log ("Aantal product-items op deze pagina: " + z.length);
-
 /* -------------------------------SHOW PASSWORD------------------------------------------------ */
 
 function showPassword() {
   console.log("myFunction is gestart");
-  var x = document.getElementById("myInput");
+  let x = document.getElementById("myInput");
   console.log(x);
   console.log(x.type);
 
@@ -36,44 +39,54 @@ function showPassword() {
 
 /* -------------------------------ITEM TOEVOEGEN------------------------------------------------- */
 
-var cart = [];
+let cart = [];
 
 class Item {
-  constructor (id, name, price, image, count) {
-    this.id = id;
+  constructor (name, image, price, description, count) {
     this.name = name;
-    this.price = price;
     this.image = image;
+    this.price = price;
+    this.description = description;
     this.count = count;
   }
 }
 
 /* Voegt aan alle BUY-BUTTONS een eventlistener toe die geactiveerd wordt bij clicked */
-var addToCartButtons = document.getElementsByClassName('buy-button');
+let addToCartButtons = document.getElementsByClassName('buy-button');
 console.log("Er zijn " + addToCartButtons.length + " buy-buttons op deze pagina");
-for (var i = 0; i < addToCartButtons.length; i++) {
-  var button = addToCartButtons[i]
+for (let i = 0; i < addToCartButtons.length; i++) {
+  let button = addToCartButtons[i]
   button.addEventListener('click', addToCartClicked)
 }
 
-/* Selecteert de geklikte button, zoekt parent van parent om het product te kennen, neemt van dat product id, name, price en image. 
+/* Selecteert de geklikte button, zoekt parent van parent om het product te kennen, neemt van dat product name, image, price en description. 
 Met die gegevens en met count = 1 maken we een new Item en voegen dat item toe aan de cart. */
 function addToCartClicked(event) {
   console.log("BUY BUTTON WAS CLICKED");
-  var button = event.target
-  var productItem = button.parentElement.parentElement
+
+  let button = event.target;
+
+  let productItem = button.parentElement.parentElement;
+  console.log(productItem);
   console.log("het productItem is " + productItem);
-  var id = productItem.getElementsByClassName('product-id')[0].value
-  console.log("ID is: " + id);
-  var name = productItem.getElementsByClassName('product-name')[0].innerText
+
+  let name = productItem.getElementsByClassName('product-name')[0].innerText;
   console.log("Name is: " + name);
-  var price = productItem.getElementsByClassName('product-price')[0].innerText
-  console.log("Price is: " + price);
-  var imageSrc = productItem.getElementsByClassName('product-image')[0].src
+
+  let imageSrc = productItem.getElementsByClassName('product-image')[0].src;
   console.log("ImageSrc is: " + imageSrc);
-  var item = new Item(id, name, price, imageSrc, 1);
-  console.log("We zitten hier: " + id, name, price, imageSrc)
+  
+  let description = productItem.getElementsByClassName('product-description')[0].innerText;
+  console.log("Description is: " + description);
+
+  let price = productItem.getElementsByClassName('product-price')[0].innerText;
+  console.log("Price is: " + price);
+  
+  let item = new Item(name, imageSrc, price, description, 1);
+  console.log("Het item wordt aangemaakt")
+  console.log(JSON.stringify(item));
   addItemToCart(item);
+  console.log("Het item is hopelijk toegevoegd aan de functie testje..............................................................")
 }
 
 /* Voor alle items die al bestaan count += 1. 
@@ -81,41 +94,48 @@ Voor nieuwe items wordt er een nieuw item aangemaakt, item wordt toegevoegd aan 
 JSON-string wordt gemaakt met alle properties van het item. Die string wordt opgeslagen in localstorage. 
 Een unordered list wordt gemaakt en per item voegen we een nieuw listitem aan die unordered list toe. */
 function addItemToCart(item) {
-  
+  console.log("We zijn aanbeland in de functie addItemToCart");
+
     // loadCart();
-    for (var i in cart) {
+    for (let i in cart) {
       if (cart[i].name === item.name) {
         cart[i].count +=1;
-        var x = document.getElementsByClassName("cart-quantity-input-" + item.id + "\n");
+        let x = document.getElementsByClassName("cart-quantity-input-" + item.id + "\n");
         x.value = item.count;
         // saveCart();
         return;
       }
     }
-    var item = new Item(item.id, item.name, item.price, item.image, item.count);
 
-  console.log("Bij het aanmaken van het nieuwe item is ID: " + item.id + "\nNAME " + item.name + "\nPRICE " + item.price + "\nIMAGE " + item.image + "\nCOUNT " + item.count);
+    console.log("Na de check of het item al bestaat");
+    console.log(item.name);
+    console.log(item.image);
+    console.log(item.price);
+    console.log(item.description);
+    console.log(item.count);
 
+    item = new Item(item.name, item.image, item.price, item.description, item.count);
+
+  console.log("Bij het aanmaken van het nieuwe item is NAME: " + item.name + "\nIMAGE " + item.image + "\nPRICE " + item.price + "\nDESCR " + item.description + "\nCOUNT " + item.count);
+  
     cart.push(item);
+    console.log("Item toegevoegd aan de cart");
 
-    var cartRowContents = `
+    let cartRowContents = `
     <div class="cart-item">
-      <span class="cart-item-id">${item.id}</span>
-      <img class="cart-item-image" src="${item.image}" width="100"
-      height="100">
+      <img class="cart-item-image" src="${item.image}" width="100" height="100">
       <span class="cart-item-name">${item.name}</span>
-    </div>
     <span class="cart-price">${item.price}</span>
     <div class="cart-quantity">
-      <input class="cart-quantity-input-${item.id}" type="number" value="${item.count}">
+      <input class="cart-quantity-input" type="number" value="${item.count}">
       <button class="btn btn-remove" type="button">REMOVE</button>
     </div>`
 
     console.log("JSON: " + JSON.stringify(cartRowContents));
 
     localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
-    var ul = document.getElementById('show-cart');
-    var li = document.createElement("li");
+    let ul = document.getElementById('show-cart');
+    let li = document.createElement("li");
     li.innerHTML += cartRowContents;
     ul.appendChild(li);
     //saveCart();
@@ -126,11 +146,11 @@ function addItemToCart(item) {
 /* ---------------------------------------ITEM VERWIJDEREN-------------------------------------------- */
 
 /* TODO: juiste div verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
-var removeCartItemButtons = document.getElementsByClassName('btn-remove');
-for (var i = 0; i < removeCartItemButtons.length; i++) {
-  var button = removeCartItemButtons[i];
+let removeCartItemButtons = document.getElementsByClassName('btn-remove');
+for (let i = 0; i < removeCartItemButtons.length; i++) {
+  let button = removeCartItemButtons[i];
   button.addEventListener('click', function(event) {
-    var buttonClicked = event.target;
+    let buttonClicked = event.target;
     console.log(buttonClicked.parentNode.nodeName)  ;
     buttonClicked.parentElement.remove();
   })
@@ -138,16 +158,16 @@ for (var i = 0; i < removeCartItemButtons.length; i++) {
 
 /* -------------------------------------ALLE ITEMS VERWIJDEREN---------------------------------------------- */
 
-/* TODO: juiste div's verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
-var removeCartItemButtons = document.getElementsByClassName('btn-remove');
-for (var i = 0; i < removeCartItemButtons.length; i++) {
-  var button = removeCartItemButtons[i];
-  button.addEventListener('click', function(event) {
-    var buttonClicked = event.target;
-    console.log(buttonClicked.parentNode.nodeName)  ;
-    buttonClicked.parentElement.remove();
-  })
-}
+// /* TODO: juiste div's verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
+// removeCartItemButtons = document.getElementsByClassName('btn-remove');
+// for (let i = 0; i < removeCartItemButtons.length; i++) {
+//   let button = removeCartItemButtons[i];
+//   button.addEventListener('click', function(event) {
+//     let buttonClicked = event.target;
+//     console.log(buttonClicked.parentNode.nodeName)  ;
+//     buttonClicked.parentElement.remove();
+//   })
+// }
 
 /* ------------------------------MAKE CART ARRAY EMPTY----------------------------------------------------- */
 
@@ -166,14 +186,14 @@ function saveCart() {
 /* ------------------------------LOAD CART FROM LOCALSTORAGE----------------------------------------------------- */
 
 function loadCart() {
-  var a = JSON.parse(localStorage.getItem("shoppingcart"));
+  let a = JSON.parse(localStorage.getItem("shoppingcart"));
 }
 
 /* ------------------------------COUNT ALL ITEMS IN CART----------------------------------------------------- */
 
 function countCart() {
-  var totalCount = 0;
-  for (var i in cart) {
+  let totalCount = 0;
+  for (let i in cart) {
     totalCount += cart[i].count;
   }
 
@@ -183,8 +203,8 @@ function countCart() {
 /* ------------------------------TOTAL PRICE----------------------------------------------------- */
 
 function totalCart() {
-  var totalCost = 0;
-  for (var i in cart) {
+  let totalCost = 0;
+  for (let i in cart) {
     totalCost += cart[i].price * cart[i].count;
   }
 
@@ -194,11 +214,11 @@ function totalCart() {
 /* ------------------------------COPY CART ARRAY (SHOULD BE USED TO DISPLAY CART)----------------------------------------------------- */
 
 function listCart() {
-  var cartCopy = [];
-  for (var i in cart) {
-    var item = cart[i];
-    var itemCopy = {};
-    for (var p in item) {
+  let cartCopy = [];
+  for (let i in cart) {
+    let item = cart[i];
+    let itemCopy = {};
+    for (let p in item) {
       itemCopy[p] = item[p];
     }
     itemCopy.total = (item.price * item.count).toFixed(2);
