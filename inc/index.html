@@ -70,7 +70,7 @@
     </section>
 
 <section class="block block-plans">
-  <div class="grid grid--1x3">
+  <div class="grid grid--1x3" data-aos="flip-up" data-aos-delay="75">
     <div class="plan">
       <div class="card card--primary">
         <header class="card__header">
@@ -118,7 +118,7 @@
       <header class="block__header">
         <h3 class="block__heading">Be notified on new arrivals and discounts?</h3>
         <div class="content">
-        <button class="btn btn--accent btn--outline show-modal"><span>Yes, please!</span></button>
+        <button class="btn btn--accent btn--outline show-modal" data-aos="zoom-in"><span>Yes, please!</span></button>
       </div>
       </header>
   </div>
@@ -129,6 +129,10 @@
   ?>
 
 <script src="js/main.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 </body>
 
