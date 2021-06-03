@@ -7,7 +7,7 @@
         <header class="block__header ">
           <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
           <div>
-          <a href="login.php" class="btn btn--accent btn--stretched">Log In</a>
+          <a href="login.php" class="btn btn--stretched">Log In</a>
         </div>  
         </header>
       </div>
@@ -48,7 +48,7 @@
         name="pwdrepeat"
         placeholder="Repeat password"
       />
-      <button class="btn btn--accent form--button" type="submit" name="submit">Sign Up</button>
+      <button class="btn form--button" type="submit" name="submit">Sign Up</button>
       </form>
       </div>
 

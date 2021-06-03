@@ -58,6 +58,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "poppins", Arial, Helvetica, sans-serif;
   font-size: 2.4rem;
   line-height: 1.5;
@@ -168,6 +169,10 @@ p {
 
 /* Buttons */
 .btn {
+  background:conic-gradient(from 11.1416rad at 38% 48%, #e6e9bf, #d2b5aa, #cbaea3, #d4b5ab,
+  #e6e9bf, #d2b5aa, #cbaea3, #d4b5ab,
+  #e6e9bf, #d2b5aa, #cbaea3, #d4b5ab,
+  #e6e9bf, #d2b5aa, #cbaea3, #d4b5ab);
   border-radius: 40px;
   border: 0;
   cursor: pointer;
@@ -336,6 +341,40 @@ div button:hover {
   cursor: pointer;
 }
 
+.show-modal {
+  width: auto;
+  color: rgb(85, 26, 139);
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__window {
+  position: relative;
+  background-color: white;
+  padding: 4em 2em;
+}
+
+.modal__cl {
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+
+#modal:not(:target) {
+  visibility: hidden;
+  opacity: 0;
+}
+
 /* Links */
 a {
   text-decoration: none;
@@ -485,11 +524,17 @@ a {
 }
 
 .card__header, .card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem 3rem;
 }
 
 .card--primary .card__header {
-  background: var(--color-secondary);
+    background:conic-gradient(#d7d7d7, #c3c3c3, #cccccc, #c6c6c6,
+                  #d7d7d7, #c3c3c3, #cccccc, #c6c6c6,
+                  #d7d7d7, #c3c3c3, #cccccc, #c6c6c6,
+                  #d7d7d7, #c3c3c3, #cccccc, #c6c6c6);
   color: #fff;
 }
 
@@ -617,7 +662,7 @@ a {
 }
 
 .quote__text {
-  color: var(--color-primary);
+  color: var(--color-decoration);
 }
 
 .quote__text::before {
@@ -690,6 +735,7 @@ a {
 /* Testimonials */
 .testimonial {
   padding: 3rem;
+  height: 50rem;
 }
 
 .testimonial__image {
@@ -846,10 +892,14 @@ a {
 
 /* Navigation Bar */
 .nav {
-  background: #000;
+	background:conic-gradient(from 11.1416rad at 38% 48%, #d95641, #b14439, #b2453a, #d25645, 
+								#d95641, #b14439, #b2453a, #d25645,
+								#d95641, #b14439, #b2453a, #d25645,
+								#d95641, #b14439, #b2453a, #d25645);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
+
   padding: 1rem;
   align-items: center;
 }
@@ -869,7 +919,8 @@ a {
 }
 
 .nav__item>a {
-  color: #fff;
+  color: black;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
@@ -878,10 +929,10 @@ a {
 }
 
 .nav__item.active {
-  background:conic-gradient(#d95641, #b14439, #b2453a, #d25645, 
-  #d95641, #b14439, #b2453a, #d25645,
-  #d95641, #b14439, #b2453a, #d25645,
-  #d95641, #b14439, #b2453a, #d25645);
+	background:conic-gradient(#edc800, #e3b600, #f3cf00, #ffe800,
+								#edc800, #e3b600, #f3cf00, #ffe800,
+								#edc800, #e3b600, #f3cf00, #ffe800,
+								#edc800, #e3b600, #f3cf00, #ffe800);
 border-radius: 7px;
 }
 
@@ -895,12 +946,14 @@ border-radius: 7px;
   opacity: 1;
   box-shadow: 0 0 0 3px #666;
   border-radius: 5px;
+  
 }
 
 .nav__brand {
   transform: translateY(5px);
   width: auto;
   padding-left: 50px;
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -1044,7 +1097,10 @@ border-radius: 7px;
   display: block;
   width: 225px;
   padding: 15px 0;
-  background-color: var(--color-accent);
+	background:conic-gradient(from 11.1416rad at 38% 48%, #d95641, #b14439, #b2453a, #d25645, 
+								#d95641, #b14439, #b2453a, #d25645,
+								#d95641, #b14439, #b2453a, #d25645,
+								#d95641, #b14439, #b2453a, #d25645);
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
   font: 700 18px/1 'Lato', sans-serif;
@@ -1155,7 +1211,10 @@ display:inline-block;
   display: flex;
   justify-content: space-between;
   margin-top: 2.5rem;
+}
 
+.socialMediaIcon:hover {
+  transform: scale(1.5);
 }
 
 /* Emoji password */
@@ -1197,19 +1256,19 @@ display:inline-block;
 }
 
 #icon + #icon::after {
-  content: 'ðŸ˜º';
+  content: '\1F63B';
 }
 
 #icon:invalid + #icon::after {
-  content: 'ðŸ±';
+  content: '\1F431';
 }
 
 .form__input + #icon::after {
-  content: 'ðŸ˜º';
+  content: '\1F63B';
 }
 
 .form__input:invalid + #icon::after {
-  content: 'ðŸ±';
+  content: '\1F431';
 }
 
 .sign-up {
@@ -1340,7 +1399,6 @@ width: auto;
 }
 
 .myTable {
-  background-color: gold;
   margin-left: auto;
   
 }

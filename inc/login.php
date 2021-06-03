@@ -8,7 +8,7 @@
       <header class="block__header ">
         <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
         <div>
-          <a href="signup.php" class="btn btn--accent btn--stretched">Register</a>
+          <a href="signup.php" class="btn btn--stretched">Register</a>
         </div>
       </header>
     </div>
@@ -44,7 +44,7 @@
         <span class="pwd-show-text">Show Password</span>
       </div>
 
-      <button class="btn btn--accent form--button" type="submit" name="submit">Log In</button>
+      <button class="btn form--button" type="submit" name="submit">Log In</button>
       
       <script src="js/main.js"></script>
     

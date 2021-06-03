@@ -9,8 +9,8 @@
           <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
           <p>Please register to visit our webshop</p>
           <div>
-          <a href="signup.php" class="btn btn--accent btn--stretched">Register</a>
-          <a href="login.php" class="btn btn--accent btn--stretched">Log In</a>
+          <a href="signup.php" class="btn btn--stretched">Register</a>
+          <a href="login.php" class="btn btn--stretched">Log In</a>
         </div>  
         </header>
       </div>
@@ -24,11 +24,27 @@
         <p class="p--modal">Please enter your email address to subscribe to our newsletter</p>
         <form id="learn-more">
           <input type="email" placeholder="Your email address">
-            <button class="submitBtn">Submit</button>
+
+          <div>
+            <a
+              href="#modal"
+              class="btn btn--accent contact-form-btn submitBtn"
+              type="submit"
+              name="submit"
+              >Send Message</a
+            >
+          </div>
+
+          <div id="modal">
+            <div class="modal__window">
+              <a class="modal__cl" href="#">X</a>
+              <h2>We received your message!</h2>
+            </div>
+          </div>
         </form>
       </div>
     </div>
-    
+
     <section class="block">
       <div>
         <div class="card testimonial">
@@ -69,6 +85,17 @@
       </div>
     </section>
 
+    <section class="block block--light block--skewed-left">
+      <div class="grid">
+          <header class="block__header">
+            <h3 class="block__heading">Be notified on new arrivals and discounts?</h3>
+            <div class="content">
+            <button class="btn show-modal" data-aos="zoom-in"><span>Yes, please!</span></button>
+          </div>
+          </header>
+      </div>
+    </section>
+
 <section class="block block-plans">
   <div class="grid grid--1x3" data-aos="flip-up" data-aos-delay="75">
     <div class="plan">
@@ -79,7 +106,7 @@
         </header>
         <div class="card__body">
           <img class="plan--image" src="images/image4.png" alt="">
-          <a href="shop.php" class="btn btn--block btn--accent">Buy Now</a>
+          <a href="shop.php" class="btn btn--block">Buy Now</a>
         </div>
       </div>
     </div>
@@ -93,7 +120,7 @@
         </header>
         <div class="card__body">
           <img class="plan--image" src="images/image25.png" alt="">
-          <a href="shop.php" class="btn btn--block btn--accent">Buy Now</a>
+          <a href="shop.php" class="btn btn--block">Buy Now</a>
         </div>
       </div>
     </div>
@@ -106,21 +133,10 @@
         </header>
         <div class="card__body">
           <img class="plan--image" src="images/image15.png" alt="">
-          <a href="shop.php" class="btn btn--block btn--accent">Buy Now</a>
+          <a href="shop.php" class="btn btn--block">Buy Now</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="block block--light block--skewed-left">
-  <div class="grid">
-      <header class="block__header">
-        <h3 class="block__heading">Be notified on new arrivals and discounts?</h3>
-        <div class="content">
-        <button class="btn btn--accent btn--outline show-modal" data-aos="zoom-in"><span>Yes, please!</span></button>
-      </div>
-      </header>
   </div>
 </section>
 
@@ -136,8 +152,8 @@
 
 </body>
 
-<?php
+<!-- <?php
 if (isset($_SESSION["userid"])) {
   echo "<p class='dbMessage'>Hello there, " . $_SESSION["firstname"] ."</p>";
 }
-?>
+?> -->

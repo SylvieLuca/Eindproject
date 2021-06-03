@@ -10,9 +10,8 @@
       </header>
       <div class="collapsible__content">
         <ul class="list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Affiliates</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+
         </ul>
       </div>
     </section>
@@ -26,14 +25,10 @@
       </header>
       <div class="collapsible__content">
         <ul class="list">
-          <li><a href="#">Website Hosting</a></li>
-          <li><a href="#">Free Automated Wordpress</a></li>
-          <li><a href="#">Migrations</a></li>
+          <li><a href="shop.php">Webshop</a></li>
         </ul>
       </div>
     </section>
-
-
 
     <section class="collapsible footer__section">
       <header class="collapsible__header">
@@ -53,10 +48,10 @@
 
     <section class="collapsible footer__section">
       <div class="socialMedia">
-        <a class="bg-icons8-facebook-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Facebook"></a>
-        <a class="bg-icons8-instagram-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Instagram"></a>
-        <a class="bg-icons8-reddit-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Reddit"></a>
-        <a class="bg-icons8-twitter-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Twitter"></a>
+        <a class="socialMediaIcon bg-icons8-facebook-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Facebook"></a>
+        <a class="socialMediaIcon bg-icons8-instagram-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Instagram"></a>
+        <a class="socialMediaIcon bg-icons8-reddit-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Reddit"></a>
+        <a class="socialMediaIcon bg-icons8-twitter-50" target="_blank" href="http://www.google.com/search?q=Quetie+and+Smoetie+Twitter"></a>
       </div>
     </section>
 
@@ -65,7 +60,8 @@
         src="images/logoSmall.png"
         alt="Quetie and Smoetie's Quality Scratching Logo"
       />
-      <p class="footer__copyright">Copyright <?php echo date("Y"); ?> - Sylvie Luca</p>
+      <p class="footer__copyright">&copy; <?php echo date("Y"); ?> - Sylvie Luca</p>
+
     </section>
 
   </div>
