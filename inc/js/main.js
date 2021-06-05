@@ -246,21 +246,30 @@ function showCartBadge()
 	if (cart !== null && cart.length > 0)
 	{
 		cart.forEach(showCartBadgeItem);
-	}
+
+      //Show "clear cart" button if cart is not empty
+    let showcartcontainer = document.getElementById('show-cart');
+    var x = document.createElement("BUTTON");
+    var t = document.createTextNode("Clear Cart");
+    x.appendChild(t);
+    showcartcontainer.appendChild(x);
+	}   
+  
 }
+
 function showCartBadgeItem(item)
 {
 	console.log(item.name);
 	let cartRowContents = `
     <div class="cart-item">
-      <img class="cart-item-image" src="${item.image}" width="100" height="100">
-      <span class="cart-item-name">${item.name}</span>
+    <img class="cart-item-image" src="${item.image}" width="60" height="60">
+    <span class="cart-item-name">${item.name}</span>
     <span class="cart-price">${item.price}</span>
     <div class="cart-quantity">
       <input class="cart-quantity-input" type="number" value="${item.count}">
-      <button class="btn btn-remove" onclick="removeItemFromCart('${item.name}');" type="button">REMOVE</button>
-    </div>`
-
+    </div>
+    <a href="#" onclick="removeItemFromCart('${item.name}')">X</a>
+    `
     console.log("JSON: " + JSON.stringify(cartRowContents));
 
     let ul = document.getElementById('show-cart');
@@ -268,4 +277,3 @@ function showCartBadgeItem(item)
     li.innerHTML += cartRowContents;
     ul.appendChild(li);
 }
-
