@@ -53,13 +53,22 @@
           placeholder="Message"
         ></textarea>
 
-        <button
-          class="btn btn--accent contact-form-btn"
-          type="submit"
-          name="submit"
-        >
-          Send Message
-        </button>
+        <div>
+          <a
+            href="#modal"
+            class="btn contact-form-btn"
+            type="submit"
+            name="submit"
+            >Send Message</a
+          >
+        </div>
+
+        <div id="modal">
+          <div class="modal__window">
+            <a class="modal__cl" href="#">X</a>
+            <h2>We received your message!</h2>
+          </div>
+        </div>
       </form>
     </div>
   </div>

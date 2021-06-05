@@ -15,6 +15,7 @@
     <link rel="icon" href="images/favicon.png" type="image/x-icon"> 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     
@@ -31,7 +32,7 @@
         if (isset($_SESSION["userid"])) { ?>
           <li class='nav__item <?= ($activePage == 'index.html') ? 'active':''?>'><a href='index.html'>Home</a></li>
           <li class='nav__item <?= ($activePage == 'shop.php') ? 'active':''?>'><a href='shop.php'>Shop</a></li>
-          <li class='nav__item <?= ($activePage == 'shoppingCart.html') ? 'active':''?>'><a href='shoppingCart.html'>Shopping Cart</a></li>
+          <li class='nav__item <?= ($activePage == 'cart.php') ? 'active':''?>'><a href='cart.php'>Shopping Cart</a></li>
           <li class='nav__item <?= ($activePage == 'logout.php') ? 'active':''?>'><a href='includes/logout.inc.php'>Log Out</a></li>
         <?php }
         else { ?>

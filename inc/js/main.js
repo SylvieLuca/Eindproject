@@ -68,6 +68,7 @@ function addToCartClicked(event) {
 
   let productItem = button.parentElement.parentElement;
   console.log(productItem);
+  console.log("Van het type " + typeof(productItem));
   console.log("het productItem is " + productItem);
 
   let name = productItem.getElementsByClassName('product-name')[0].innerText;
@@ -84,8 +85,20 @@ function addToCartClicked(event) {
   
   let item = new Item(name, imageSrc, price, description, 1);
   console.log("Het item wordt aangemaakt")
-  console.log(JSON.stringify(item));
-  addItemToCart(item);
+  let jsonString = ("M'n eerste JSON: " + JSON.stringify(item));
+  console.log(jsonString);
+  // sendJsonData(jsonString);
+  // addItemToCart(item);
+
+  $.ajax({
+    type: 'POST',
+    url: 'get_query.php',                      
+    data: {test: item},
+    success: function(data) {
+      // alert(data);
+    }
+  });
+
   console.log("Het item is hopelijk toegevoegd aan de functie testje..............................................................")
 }
 
@@ -93,55 +106,82 @@ function addToCartClicked(event) {
 Voor nieuwe items wordt er een nieuw item aangemaakt, item wordt toegevoegd aan de cart. 
 JSON-string wordt gemaakt met alle properties van het item. Die string wordt opgeslagen in localstorage. 
 Een unordered list wordt gemaakt en per item voegen we een nieuw listitem aan die unordered list toe. */
-function addItemToCart(item) {
-  console.log("We zijn aanbeland in de functie addItemToCart");
+// function addItemToCart(item) {
+//   console.log("We zijn aanbeland in de functie addItemToCart");
 
-    // loadCart();
-    for (let i in cart) {
-      if (cart[i].name === item.name) {
-        cart[i].count +=1;
-        let x = document.getElementsByClassName("cart-quantity-input-" + item.id + "\n");
-        x.value = item.count;
-        // saveCart();
-        return;
-      }
-    }
+//     // loadCart();
+//     for (let i in cart) {
+//       if (cart[i].name === item.name) {
+//         cart[i].count +=1;
+//         let x = document.getElementsByClassName("cart-quantity-input-" + item.id + "\n");
+//         x.value = item.count;
+//         // saveCart();
+//         return;
+//       }
+//     }
 
-    console.log("Na de check of het item al bestaat");
-    console.log(item.name);
-    console.log(item.image);
-    console.log(item.price);
-    console.log(item.description);
-    console.log(item.count);
+//     // console.log("Na de check of het item al bestaat");
+//     // console.log(item.name);
+//     // console.log(item.image);
+//     // console.log(item.price);
+//     // console.log(item.description);
+//     // console.log(item.count);
 
-    item = new Item(item.name, item.image, item.price, item.description, item.count);
+//     // item = new Item(item.name, item.image, item.price, item.description, item.count);
 
-  console.log("Bij het aanmaken van het nieuwe item is NAME: " + item.name + "\nIMAGE " + item.image + "\nPRICE " + item.price + "\nDESCR " + item.description + "\nCOUNT " + item.count);
+//     // console.log("Bij het aanmaken van het nieuwe item is NAME: " + item.name + "\nIMAGE " + item.image + "\nPRICE " + item.price + "\nDESCR " + item.description + "\nCOUNT " + item.count);
   
-    cart.push(item);
-    console.log("Item toegevoegd aan de cart");
+//     cart.push(item);
+//     console.log("Item toegevoegd aan de cart");
+//   }
+    // let cartRowContents = `
+    // <div class="cart-item">
+    //   <img class="cart-item-image" src="${item.image}" width="100" height="100">
+    //   <span class="cart-item-name">${item.name}</span>
+    // <span class="cart-price">${item.price}</span>
+    // <div class="cart-quantity">
+    //   <input class="cart-quantity-input" type="number" value="${item.count}">
+    //   <button class="btn btn-remove" type="button">REMOVE</button>
+    // </div>`
 
-    let cartRowContents = `
-    <div class="cart-item">
-      <img class="cart-item-image" src="${item.image}" width="100" height="100">
-      <span class="cart-item-name">${item.name}</span>
-    <span class="cart-price">${item.price}</span>
-    <div class="cart-quantity">
-      <input class="cart-quantity-input" type="number" value="${item.count}">
-      <button class="btn btn-remove" type="button">REMOVE</button>
-    </div>`
+    // let cartRowContents = `
+    //   $name = ${item.name};
+    //   $image = ${item.image};
+    //   $price = ${item.price};
+    //   $description = ${item.description};
+    //   $quantity = ${item.count};`
 
-    console.log("JSON: " + JSON.stringify(cartRowContents));
+    //   console.log(typeof(cartRowContents));
+    // console.log("JSON: " + JSON.stringify(item));
 
-    localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
-    let ul = document.getElementById('show-cart');
-    let li = document.createElement("li");
-    li.innerHTML += cartRowContents;
-    ul.appendChild(li);
-    //saveCart();
+    // sendDataWithAjax(cartRowContents);
+    
+    // function sendDataWithAjax(string) {
+    //   console.log("We zitten in de sendDatawithAjax-functie");
+    //   var xhttp = new XMLHttpRequest();
+    //   xhttp.open("POST", "cart.php", true);
+    //   console.log("xhttp.open()");
+    //   xhttp.send();
+    //   console.log("xhttp.send()");
+    // }
 
-    console.log("Mijn cart is gevuld met: " + cart[0].count);
-}
+    // localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
+    // let ul = document.getElementById('show-cart');
+    // let li = document.createElement("li");
+    // li.innerHTML += cartRowContents;
+    // ul.appendChild(li);
+    // //saveCart();
+
+    // console.log("Mijn cart is gevuld met: " + cart[0].count);
+// }
+
+
+// function sendJsonData(jsonString) {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open("POST", "receive.php");
+//   xhr.setRequestHeader("Content-Type", "application/json");
+//   xhr.send(jsonString);
+// }
 
 /* ---------------------------------------ITEM VERWIJDEREN-------------------------------------------- */
 

@@ -1,6 +1,7 @@
 <?php
   include_once 'header.php';
 ?>
+
 <body>
 
     <section class="block block--dark block--skewed-left">
@@ -15,6 +16,8 @@
         </header>
       </div>
     </section>
+
+    <!-- <button onclick="ajaxTest()">AJAX</button> -->
 
     <div class="modal modal--hidden">
       <div class="modal__contents">
@@ -140,6 +143,17 @@
   </div>
 </section>
 
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  <tbody id="data">
+
+
+  </tbody>
+</table>
+
 <?php
   include_once 'footer.php';
   ?>
@@ -149,6 +163,34 @@
 <script>
   AOS.init();
 </script>
+
+<!-- <script>
+  function ajaxTest () {
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "data.php", true);
+    ajax.send();
+    ajax.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+
+        var data = JSON.parse(this.responseText);
+        console.log(data);
+
+        var html = "";
+        for (var a = 0; a < data.length; a++) {
+          var firstname = data[a].usersFirstName;
+          var lastname = data[a].usersLastName;
+          
+          html += "<tr>";
+            html +="<td>" + firstname + "</td>";
+            html +="<td>" + lastname + "</td>";
+            html += "</tr>";
+        }
+        document.getElementById("data").innerHTML = html;
+
+      }
+    }
+  }
+</script> -->
 
 </body>
 
