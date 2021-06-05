@@ -1,5 +1,4 @@
 <?php
 session_start();
-$_SESSION += $_POST;
-var_dump($_SESSION);
+$_SESSION['cart']=$_POST['cart'];
 ?>

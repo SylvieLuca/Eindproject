@@ -51,12 +51,26 @@ class Item {
   }
 }
 
+loadCart();
+showCartBadge();
+
 /* Voegt aan alle BUY-BUTTONS een eventlistener toe die geactiveerd wordt bij clicked */
 let addToCartButtons = document.getElementsByClassName('buy-button');
 console.log("Er zijn " + addToCartButtons.length + " buy-buttons op deze pagina");
 for (let i = 0; i < addToCartButtons.length; i++) {
   let button = addToCartButtons[i]
   button.addEventListener('click', addToCartClicked)
+}
+
+function woopCartToServer(cart) {
+	$.ajax({
+    type: 'POST',
+    url: 'get_query.php',                      
+    data: {cart: cart},
+    success: function(data) {
+    //  alert(data);
+		}
+	});
 }
 
 /* Selecteert de geklikte button, zoekt parent van parent om het product te kennen, neemt van dat product name, image, price en description. 
@@ -68,7 +82,6 @@ function addToCartClicked(event) {
 
   let productItem = button.parentElement.parentElement;
   console.log(productItem);
-  console.log("Van het type " + typeof(productItem));
   console.log("het productItem is " + productItem);
 
   let name = productItem.getElementsByClassName('product-name')[0].innerText;
@@ -85,20 +98,9 @@ function addToCartClicked(event) {
   
   let item = new Item(name, imageSrc, price, description, 1);
   console.log("Het item wordt aangemaakt")
-  let jsonString = ("M'n eerste JSON: " + JSON.stringify(item));
-  console.log(jsonString);
-  // sendJsonData(jsonString);
-  // addItemToCart(item);
-
-  $.ajax({
-    type: 'POST',
-    url: 'get_query.php',                      
-    data: {test: item},
-    success: function(data) {
-      // alert(data);
-    }
-  });
-
+  console.log(JSON.stringify(item));
+  addItemToCart(item);
+    
   console.log("Het item is hopelijk toegevoegd aan de functie testje..............................................................")
 }
 
@@ -106,94 +108,52 @@ function addToCartClicked(event) {
 Voor nieuwe items wordt er een nieuw item aangemaakt, item wordt toegevoegd aan de cart. 
 JSON-string wordt gemaakt met alle properties van het item. Die string wordt opgeslagen in localstorage. 
 Een unordered list wordt gemaakt en per item voegen we een nieuw listitem aan die unordered list toe. */
-// function addItemToCart(item) {
-//   console.log("We zijn aanbeland in de functie addItemToCart");
+function addItemToCart(item) {
+  console.log("We zijn aanbeland in de functie addItemToCart");
 
-//     // loadCart();
-//     for (let i in cart) {
-//       if (cart[i].name === item.name) {
-//         cart[i].count +=1;
-//         let x = document.getElementsByClassName("cart-quantity-input-" + item.id + "\n");
-//         x.value = item.count;
-//         // saveCart();
-//         return;
-//       }
-//     }
+    //loadCart();
+    for (let i in cart) {
+      if (cart[i].name === item.name) {
+        cart[i].count +=1;
+        saveCart();
+		    showCartBadge();
+        return;
+      }
+    }
 
-//     // console.log("Na de check of het item al bestaat");
-//     // console.log(item.name);
-//     // console.log(item.image);
-//     // console.log(item.price);
-//     // console.log(item.description);
-//     // console.log(item.count);
+    console.log("Na de check of het item al bestaat");
+    console.log(item.name);
+    console.log(item.image);
+    console.log(item.price);
+    console.log(item.description);
+    console.log(item.count);
 
-//     // item = new Item(item.name, item.image, item.price, item.description, item.count);
+    item = new Item(item.name, item.image, item.price, item.description, item.count);
 
-//     // console.log("Bij het aanmaken van het nieuwe item is NAME: " + item.name + "\nIMAGE " + item.image + "\nPRICE " + item.price + "\nDESCR " + item.description + "\nCOUNT " + item.count);
+    console.log("Bij het aanmaken van het nieuwe item is NAME: " + item.name + "\nIMAGE " + item.image + "\nPRICE " + item.price + "\nDESCR " + item.description + "\nCOUNT " + item.count);
   
-//     cart.push(item);
-//     console.log("Item toegevoegd aan de cart");
-//   }
-    // let cartRowContents = `
-    // <div class="cart-item">
-    //   <img class="cart-item-image" src="${item.image}" width="100" height="100">
-    //   <span class="cart-item-name">${item.name}</span>
-    // <span class="cart-price">${item.price}</span>
-    // <div class="cart-quantity">
-    //   <input class="cart-quantity-input" type="number" value="${item.count}">
-    //   <button class="btn btn-remove" type="button">REMOVE</button>
-    // </div>`
+    cart.push(item);
+    console.log("Item toegevoegd aan de cart");
 
-    // let cartRowContents = `
-    //   $name = ${item.name};
-    //   $image = ${item.image};
-    //   $price = ${item.price};
-    //   $description = ${item.description};
-    //   $quantity = ${item.count};`
+    saveCart();
+    showCartBadge();
 
-    //   console.log(typeof(cartRowContents));
-    // console.log("JSON: " + JSON.stringify(item));
+    console.log("Mijn cart is gevuld met: " + cart[0].count);
+}
 
-    // sendDataWithAjax(cartRowContents);
-    
-    // function sendDataWithAjax(string) {
-    //   console.log("We zitten in de sendDatawithAjax-functie");
-    //   var xhttp = new XMLHttpRequest();
-    //   xhttp.open("POST", "cart.php", true);
-    //   console.log("xhttp.open()");
-    //   xhttp.send();
-    //   console.log("xhttp.send()");
-    // }
-
-    // localStorage.setItem("shoppingcart", JSON.stringify(cartRowContents));
-    // let ul = document.getElementById('show-cart');
-    // let li = document.createElement("li");
-    // li.innerHTML += cartRowContents;
-    // ul.appendChild(li);
-    // //saveCart();
-
-    // console.log("Mijn cart is gevuld met: " + cart[0].count);
-// }
-
-
-// function sendJsonData(jsonString) {
-//   const xhr = new XMLHttpRequest();
-//   xhr.open("POST", "receive.php");
-//   xhr.setRequestHeader("Content-Type", "application/json");
-//   xhr.send(jsonString);
-// }
 
 /* ---------------------------------------ITEM VERWIJDEREN-------------------------------------------- */
 
-/* TODO: juiste div verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
-let removeCartItemButtons = document.getElementsByClassName('btn-remove');
-for (let i = 0; i < removeCartItemButtons.length; i++) {
-  let button = removeCartItemButtons[i];
-  button.addEventListener('click', function(event) {
-    let buttonClicked = event.target;
-    console.log(buttonClicked.parentNode.nodeName)  ;
-    buttonClicked.parentElement.remove();
-  })
+function removeItemFromCart(name)
+{
+	console.log("Dit item werd verwijderd: " + name);
+	for (let i in cart) {
+      if (cart[i].name === name) {
+	  cart.splice(i,1);
+		saveCart();
+		showCartBadge();
+      }
+    }
 }
 
 /* -------------------------------------ALLE ITEMS VERWIJDEREN---------------------------------------------- */
@@ -219,14 +179,17 @@ function clearCart() {
 /* ------------------------------SAVE CART IN LOCALSTORAGE----------------------------------------------------- */
 
 function saveCart() {
-  localStorage.setItem("shoppingcart", JSON.stringify(cart));
-
+  sessionStorage.setItem("shoppingcart", JSON.stringify(cart));
+  woopCartToServer(cart);
 }
 
 /* ------------------------------LOAD CART FROM LOCALSTORAGE----------------------------------------------------- */
 
 function loadCart() {
-  let a = JSON.parse(localStorage.getItem("shoppingcart"));
+	if (sessionStorage.getItem("shoppingcart") !== null)
+	{
+		cart = JSON.parse(sessionStorage.getItem("shoppingcart"));
+	};
 }
 
 /* ------------------------------COUNT ALL ITEMS IN CART----------------------------------------------------- */
@@ -267,21 +230,42 @@ function listCart() {
   return cartCopy;
 }
 
-/* -------------------------------SUBSCRIBE BUTTON------------------------------------------------ */
 
-const toggleModal = () => {
-  document.querySelector('.modal')
-    .classList.toggle('modal--hidden');
-};
+/*--------------------------  show badge --------------------------------*/
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+function showCartBadge()
+{
+    let ul = document.getElementById('show-cart');
+	
+	removeAllChildNodes(ul);
+	
+	if (cart !== null && cart.length > 0)
+	{
+		cart.forEach(showCartBadgeItem);
+	}
+}
+function showCartBadgeItem(item)
+{
+	console.log(item.name);
+	let cartRowContents = `
+    <div class="cart-item">
+      <img class="cart-item-image" src="${item.image}" width="100" height="100">
+      <span class="cart-item-name">${item.name}</span>
+    <span class="cart-price">${item.price}</span>
+    <div class="cart-quantity">
+      <input class="cart-quantity-input" type="number" value="${item.count}">
+      <button class="btn btn-remove" onclick="removeItemFromCart('${item.name}');" type="button">REMOVE</button>
+    </div>`
 
-document.querySelector('.show-modal')
-  .addEventListener('click', toggleModal);
+    console.log("JSON: " + JSON.stringify(cartRowContents));
 
-document.querySelector('#learn-more')
-  .addEventListener('submit', (event) => {
-    event.preventDefault();
-  toggleModal();
-});
+    let ul = document.getElementById('show-cart');
+    let li = document.createElement("li");
+    li.innerHTML += cartRowContents;
+    ul.appendChild(li);
+}
 
-document.querySelector('.modal__close-bar span')
-  .addEventListener('click', toggleModal);

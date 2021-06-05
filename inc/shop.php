@@ -25,12 +25,12 @@
 // echo "</pre>";
 // ?>
 
-<!-- <div>
+<div>
     <ul id="show-cart">
     </ul>
     <div>You have <span id="count-cart">X</span> items in your cart</div>
     <div>Total Cart: $<span id="total-cart"></span></div>
-  </div> -->
+  </div>
 
 <?php
 
