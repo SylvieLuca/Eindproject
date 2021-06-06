@@ -199,8 +199,9 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-function showCartBadge()
-{
+
+function showCartBadge() {
+
     let ul = document.getElementById('show-cart');
 	
 	removeAllChildNodes(ul);
@@ -208,6 +209,8 @@ function showCartBadge()
 	if (cart !== null && cart.length > 0)
 	{
 		cart.forEach(showCartBadgeItem);
+
+    saveCart();
 
     //Show "go to cart" button if cart is not empty
     let showcartcontainer = document.getElementById('show-cart');    
@@ -226,21 +229,27 @@ function showCartBadge()
     goToCartBtn.setAttribute("href", "cart.php");
     goToCartBtn.className = "btn shop-button goToCartBtn";
     showcartcontainer.appendChild(goToCartBtn);
+
+    //Show total number of items
+    let totalItems = document.createElement("LABEL");
+    let totalItemsOnPage = countCart();
+    console.log("het totaal in countcart is " + countCart());
+    totalItems.innerText = "Items in cart : " + totalItemsOnPage;
+    showcartcontainer.appendChild(totalItems);
 	}   
 
 }
 
 function showCartBadgeItem(item)
 {
-  myPrice = item.price;
-  
-  stringlength = myPrice.length;
-  
-  var result = myPrice.slice(2,stringlength);
 
+  myPrice = item.price;
+  stringlength = myPrice.length;
+  var result = myPrice.slice(2,stringlength);
   result *= 1;
 
   let myCount = item.count;
+  
   let itemTotal = (myCount*result);
   let fixedItemTotal = itemTotal.toFixed(2);
 
