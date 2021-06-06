@@ -206,8 +206,7 @@ function showCartBadge() {
 	
 	removeAllChildNodes(ul);
 	
-	if (cart !== null && cart.length > 0)
-	{
+	if (cart !== null && cart.length > 0) {
 		cart.forEach(showCartBadgeItem);
 
     saveCart();
@@ -236,7 +235,14 @@ function showCartBadge() {
     console.log("het totaal in countcart is " + countCart());
     totalItems.innerText = "Items in cart : " + totalItemsOnPage;
     showcartcontainer.appendChild(totalItems);
-	}   
+	} else {
+    let showcartcontainer = document.getElementById('show-cart');    
+    let label = document.createElement("label");
+    text = "Your cart is empty";
+    label.innerText = text;
+    showcartcontainer.appendChild(label);
+
+  }
 
 }
 
