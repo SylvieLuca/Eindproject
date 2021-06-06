@@ -25,7 +25,6 @@ collapsibles.forEach((item) =>
 /* -------------------------------SHOW PASSWORD------------------------------------------------ */
 
 function showPassword() {
-  console.log("myFunction is gestart");
   let x = document.getElementById("myInput");
   console.log(x);
   console.log(x.type);
@@ -172,7 +171,9 @@ function removeItemFromCart(name)
 /* ------------------------------MAKE CART ARRAY EMPTY----------------------------------------------------- */
 
 function clearCart() {
+  console.log("we zitten in de clearcart!");
   cart = [];
+  location.reload();
   saveCart();
 }
 
@@ -247,14 +248,25 @@ function showCartBadge()
 	{
 		cart.forEach(showCartBadgeItem);
 
-      //Show "clear cart" button if cart is not empty
+    //Show "go to cart" button if cart is not empty
     let showcartcontainer = document.getElementById('show-cart');
-    var x = document.createElement("BUTTON");
-    var t = document.createTextNode("Clear Cart");
-    x.appendChild(t);
-    showcartcontainer.appendChild(x);
+
+    //Show "clear cart" button if cart is not empty
+    let emptyCartBtn = document.createElement("INPUT");
+    emptyCartBtn.setAttribute("type", "button");
+    emptyCartBtn.setAttribute("value", "Empty Cart");
+    emptyCartBtn.className = "emptyCartBtn";
+    emptyCartBtn.addEventListener('click', clearCart);
+    showcartcontainer.appendChild(emptyCartBtn);
+
+    let goToCartBtn = document.createElement("INPUT");
+    goToCartBtn.setAttribute("type", "button");
+    goToCartBtn.setAttribute("value", "Shopping Cart");
+    goToCartBtn.className = "btn shop-button goToCartBtn";
+    goToCartBtn.onclick="index.html";
+    showcartcontainer.appendChild(goToCartBtn);
 	}   
-  
+
 }
 
 function showCartBadgeItem(item)

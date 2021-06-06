@@ -1467,6 +1467,26 @@ tbody {
   height: fit-content;
 }
 
+.emptyCartBtn {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: rgb(0, 3, 153);
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  width: 30%;
+}
+
+.goToCartBtn {
+	background:conic-gradient(#edc800, #e3b600, #f3cf00, #ffe800,
+								#edc800, #e3b600, #f3cf00, #ffe800,
+								#edc800, #e3b600, #f3cf00, #ffe800,
+								#edc800, #e3b600, #f3cf00, #ffe800);
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+}
+
 .btn-remove {
   margin: auto;
   width: 50%;
