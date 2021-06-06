@@ -1483,6 +1483,8 @@ tbody {
 								#edc800, #e3b600, #f3cf00, #ffe800,
 								#edc800, #e3b600, #f3cf00, #ffe800,
 								#edc800, #e3b600, #f3cf00, #ffe800);
+                display: flex;
+                margin:auto;
                 margin-top: 1rem;
                 margin-bottom: 1rem;
 }

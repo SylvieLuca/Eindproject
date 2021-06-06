@@ -259,11 +259,11 @@ function showCartBadge()
     emptyCartBtn.addEventListener('click', clearCart);
     showcartcontainer.appendChild(emptyCartBtn);
 
-    let goToCartBtn = document.createElement("INPUT");
-    goToCartBtn.setAttribute("type", "button");
-    goToCartBtn.setAttribute("value", "Shopping Cart");
+    let goToCartBtn = document.createElement("a");
+    let text = "Shopping Cart"; 
+    goToCartBtn.textContent = text;
+    goToCartBtn.setAttribute("href", "cart.php");
     goToCartBtn.className = "btn shop-button goToCartBtn";
-    goToCartBtn.onclick="index.html";
     showcartcontainer.appendChild(goToCartBtn);
 	}   
 
