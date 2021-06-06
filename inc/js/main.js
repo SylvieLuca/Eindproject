@@ -5,13 +5,9 @@ function javascriptTest() {
   console.log("JAVASCRIPT WERKT HIER");  
 }  
 
-console.log("TEST - AANTAL ELEMENTEN OP PAGINA - TEST");
 let x = Array.from(document.querySelectorAll("div"));
 let y = Array.from(document.getElementsByClassName("buy-button"));
 let z = Array.from(document.getElementsByClassName("product-item"));
-console.log ("Aantal div's op deze pagina: " +   x.length);
-console.log ("Aantal buy-buttons op deze pagina: " + y.length);
-console.log ("Aantal product-items op deze pagina: " + z.length);
 
 /* -------------------------------HEADER & FOOTER COLLAPSIBLES------------------------------------------------ */
 
@@ -26,8 +22,6 @@ collapsibles.forEach((item) =>
 
 function showPassword() {
   let x = document.getElementById("myInput");
-  console.log(x);
-  console.log(x.type);
 
   if (x.type === "password") {
     x.type = "text";
@@ -55,7 +49,6 @@ showCartBadge();
 
 /* Voegt aan alle BUY-BUTTONS een eventlistener toe die geactiveerd wordt bij clicked */
 let addToCartButtons = document.getElementsByClassName('buy-button');
-console.log("Er zijn " + addToCartButtons.length + " buy-buttons op deze pagina");
 for (let i = 0; i < addToCartButtons.length; i++) {
   let button = addToCartButtons[i]
   button.addEventListener('click', addToCartClicked)
@@ -75,32 +68,16 @@ function woopCartToServer(cart) {
 /* Selecteert de geklikte button, zoekt parent van parent om het product te kennen, neemt van dat product name, image, price en description. 
 Met die gegevens en met count = 1 maken we een new Item en voegen dat item toe aan de cart. */
 function addToCartClicked(event) {
-  console.log("BUY BUTTON WAS CLICKED");
 
   let button = event.target;
-
   let productItem = button.parentElement.parentElement;
-  console.log(productItem);
-  console.log("het productItem is " + productItem);
-
   let name = productItem.getElementsByClassName('product-name')[0].innerText;
-  console.log("Name is: " + name);
-
   let imageSrc = productItem.getElementsByClassName('product-image')[0].src;
-  console.log("ImageSrc is: " + imageSrc);
-  
   let description = productItem.getElementsByClassName('product-description')[0].innerText;
-  console.log("Description is: " + description);
-
   let price = productItem.getElementsByClassName('product-price')[0].innerText;
-  console.log("Price is: " + price);
   
   let item = new Item(name, imageSrc, price, description, 1);
-  console.log("Het item wordt aangemaakt")
-  console.log(JSON.stringify(item));
   addItemToCart(item);
-    
-  console.log("Het item is hopelijk toegevoegd aan de functie testje..............................................................")
 }
 
 /* Voor alle items die al bestaan count += 1. 
@@ -108,7 +85,6 @@ Voor nieuwe items wordt er een nieuw item aangemaakt, item wordt toegevoegd aan 
 JSON-string wordt gemaakt met alle properties van het item. Die string wordt opgeslagen in localstorage. 
 Een unordered list wordt gemaakt en per item voegen we een nieuw listitem aan die unordered list toe. */
 function addItemToCart(item) {
-  console.log("We zijn aanbeland in de functie addItemToCart");
 
     //loadCart();
     for (let i in cart) {
@@ -120,24 +96,11 @@ function addItemToCart(item) {
       }
     }
 
-    console.log("Na de check of het item al bestaat");
-    console.log(item.name);
-    console.log(item.image);
-    console.log(item.price);
-    console.log(item.description);
-    console.log(item.count);
-
     item = new Item(item.name, item.image, item.price, item.description, item.count);
-
-    console.log("Bij het aanmaken van het nieuwe item is NAME: " + item.name + "\nIMAGE " + item.image + "\nPRICE " + item.price + "\nDESCR " + item.description + "\nCOUNT " + item.count);
   
     cart.push(item);
-    console.log("Item toegevoegd aan de cart");
-
     saveCart();
     showCartBadge();
-
-    console.log("Mijn cart is gevuld met: " + cart[0].count);
 }
 
 
@@ -145,7 +108,6 @@ function addItemToCart(item) {
 
 function removeItemFromCart(name)
 {
-	console.log("Dit item werd verwijderd: " + name);
 	for (let i in cart) {
       if (cart[i].name === name) {
 	  cart.splice(i,1);
@@ -171,7 +133,6 @@ function removeItemFromCart(name)
 /* ------------------------------MAKE CART ARRAY EMPTY----------------------------------------------------- */
 
 function clearCart() {
-  console.log("we zitten in de clearcart!");
   cart = [];
   location.reload();
   saveCart();
@@ -249,7 +210,7 @@ function showCartBadge()
 		cart.forEach(showCartBadgeItem);
 
     //Show "go to cart" button if cart is not empty
-    let showcartcontainer = document.getElementById('show-cart');
+    let showcartcontainer = document.getElementById('show-cart');    
 
     //Show "clear cart" button if cart is not empty
     let emptyCartBtn = document.createElement("INPUT");
@@ -271,21 +232,32 @@ function showCartBadge()
 
 function showCartBadgeItem(item)
 {
-	console.log(item.name);
-	let cartRowContents = `
+  myPrice = item.price;
+  
+  stringlength = myPrice.length;
+  
+  var result = myPrice.slice(2,stringlength);
+
+  result *= 1;
+
+  let myCount = item.count;
+  let itemTotal = (myCount*result);
+  let fixedItemTotal = itemTotal.toFixed(2);
+
+  let cartRowContents = `
     <div class="cart-item">
     <img class="cart-item-image" src="${item.image}" width="60" height="60">
     <span class="cart-item-name">${item.name}</span>
     <span class="cart-price">${item.price}</span>
-    <div class="cart-quantity">
-      <input class="cart-quantity-input" type="number" value="${item.count}">
-    </div>
+      <label class="cart-quantity-input"
+    <label>${myCount}</label>
+    <label>${fixedItemTotal}</label>
     <a href="#" onclick="removeItemFromCart('${item.name}')">X</a>
     `
-    console.log("JSON: " + JSON.stringify(cartRowContents));
 
     let ul = document.getElementById('show-cart');
     let li = document.createElement("li");
     li.innerHTML += cartRowContents;
     ul.appendChild(li);
 }
+
