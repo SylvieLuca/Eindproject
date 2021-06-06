@@ -40,7 +40,6 @@
       <div class="collapsible__content">
         <ul class="list">
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">Knowledge Base</a></li>
           <li><a href="#">FAQ</a></li>
         </ul>
       </div>
@@ -69,6 +68,7 @@
   <div class="privacyAndTerms">
     <a href="https://www.freeprivacypolicy.com/live/d19021ec-2542-43c2-899f-a7942c59718d">Privacy Policy</a>
     <a href="https://www.freeprivacypolicy.com/live/cd687b27-9b46-4c3e-8ba9-69d6aef2cc0d">Terms & Conditions</a>
+    <a href="https://icons8.com/icon/set/ecommerce/nolan" target="blank">Icons</a>
     </div>
 
 </footer>
