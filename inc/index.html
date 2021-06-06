@@ -18,7 +18,7 @@
     </section>
 
     <!-- <button onclick="ajaxTest()">AJAX</button> -->
-
+<!-- 
     <div class="modal modal--hidden">
       <div class="modal__contents">
         <div class="modal__close-bar">
@@ -46,7 +46,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> -->
 
     <section class="block">
       <div>
@@ -93,11 +93,33 @@
           <header class="block__header">
             <h3 class="block__heading">Be notified on new arrivals and discounts?</h3>
             <div class="content">
-            <button class="btn show-modal" data-aos="zoom-in"><span>Yes, please!</span></button>
-          </div>
+    <div>
+      <a
+        href="#modal"
+        class="btn contact-form-btn"
+        type="submit"
+        name="submit"
+        >Yes, please!</a
+      >
+    </div>
+            </div>
           </header>
       </div>
     </section>
+
+    <div id="modal">
+      <div class="modal__window">
+        <a class="modal__cl" href="#">X</a>
+        <input type="email" name="email" placeholder="Please enter your email address" />
+        <a
+        href="#"
+        class="btn subscribeBtn"
+        type="submit"
+        name="submit"
+        >Subscribe</a
+      >
+      </div>
+    </div>
 
 <section class="block block-plans">
   <div class="grid grid--1x3" data-aos="flip-up" data-aos-delay="75">
@@ -142,17 +164,6 @@
     </div>
   </div>
 </section>
-
-<table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-  </tr>
-  <tbody id="data">
-
-
-  </tbody>
-</table>
 
 <?php
   include_once 'footer.php';
