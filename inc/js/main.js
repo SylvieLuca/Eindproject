@@ -117,19 +117,6 @@ function removeItemFromCart(name)
     }
 }
 
-/* -------------------------------------ALLE ITEMS VERWIJDEREN---------------------------------------------- */
-
-// /* TODO: juiste div's verwijderen - op dit moment wordt de parent van de node verwijderd: de div waar ook SHOP in staat */
-// removeCartItemButtons = document.getElementsByClassName('btn-remove');
-// for (let i = 0; i < removeCartItemButtons.length; i++) {
-//   let button = removeCartItemButtons[i];
-//   button.addEventListener('click', function(event) {
-//     let buttonClicked = event.target;
-//     console.log(buttonClicked.parentNode.nodeName)  ;
-//     buttonClicked.parentElement.remove();
-//   })
-// }
-
 /* ------------------------------MAKE CART ARRAY EMPTY----------------------------------------------------- */
 
 function clearCart() {
@@ -170,7 +157,8 @@ function countCart() {
 function totalCart() {
   let totalCost = 0;
   for (let i in cart) {
-    totalCost += cart[i].price * cart[i].count;
+    stringlength = cart[i].price.length;
+    totalCost += cart[i].price.slice(2,stringlength) * cart[i].count;
   }
 
   return totalCost.toFixed(2);
@@ -206,13 +194,40 @@ function showCartBadge() {
 	
 	removeAllChildNodes(ul);
 	
+  //Show buttons and labels if cart is not empty
+
 	if (cart !== null && cart.length > 0) {
-		cart.forEach(showCartBadgeItem);
 
-    saveCart();
-
-    //Show "go to cart" button if cart is not empty
     let showcartcontainer = document.getElementById('show-cart');    
+
+    // Free shipping label
+    let shippingCostLabel = document.createElement("LABEL");
+    shippingCostLabel.className = "shippingCostLabel";
+    shippingCostLabel.textContent = "You get free shipping!";
+    showcartcontainer.appendChild(shippingCostLabel);
+
+    //Show total number of items
+    let totalItems = document.createElement("LABEL");
+    totalItems.className = "totalItemsLabel";
+    let totalItemsOnPage = countCart();
+    totalItems.innerText = "Items in cart: " + totalItemsOnPage;
+    showcartcontainer.appendChild(totalItems);
+
+    //Show total number of items
+    let totalPrice = document.createElement("LABEL");
+    totalPrice.className = "totalPriceLabel";
+    let totalPriceOnPage = totalCart();
+    totalPrice.innerText = "Total price: \u20AC " + totalPriceOnPage;
+
+    showcartcontainer.appendChild(totalPrice);
+
+    //Shopping Cart Button
+    let goToCartBtn = document.createElement("a");
+    let text = "Go To Shopping Cart"; 
+    goToCartBtn.textContent = text;
+    goToCartBtn.setAttribute("href", "cart.php");
+    goToCartBtn.className = "btn shop-button goToCartBtn";
+    showcartcontainer.appendChild(goToCartBtn);
 
     //Show "clear cart" button if cart is not empty
     let emptyCartBtn = document.createElement("INPUT");
@@ -222,28 +237,17 @@ function showCartBadge() {
     emptyCartBtn.addEventListener('click', clearCart);
     showcartcontainer.appendChild(emptyCartBtn);
 
-    let goToCartBtn = document.createElement("a");
-    let text = "Shopping Cart"; 
-    goToCartBtn.textContent = text;
-    goToCartBtn.setAttribute("href", "cart.php");
-    goToCartBtn.className = "btn shop-button goToCartBtn";
-    showcartcontainer.appendChild(goToCartBtn);
-
-    //Show total number of items
-    let totalItems = document.createElement("LABEL");
-    let totalItemsOnPage = countCart();
-    console.log("het totaal in countcart is " + countCart());
-    totalItems.innerText = "Items in cart : " + totalItemsOnPage;
-    showcartcontainer.appendChild(totalItems);
 	} else {
     let showcartcontainer = document.getElementById('show-cart');    
     let label = document.createElement("label");
     text = "Your cart is empty";
     label.innerText = text;
     showcartcontainer.appendChild(label);
-
   }
 
+  cart.forEach(showCartBadgeItem);
+
+  saveCart();
 }
 
 function showCartBadgeItem(item)
@@ -260,14 +264,30 @@ function showCartBadgeItem(item)
   let fixedItemTotal = itemTotal.toFixed(2);
 
   let cartRowContents = `
-    <div class="cart-item">
-    <img class="cart-item-image" src="${item.image}" width="60" height="60">
-    <span class="cart-item-name">${item.name}</span>
-    <span class="cart-price">${item.price}</span>
-      <label class="cart-quantity-input"
-    <label>${myCount}</label>
-    <label>${fixedItemTotal}</label>
+  <div class="grid-container">
+    <div class="Image">
+      <img class="img" src="${item.image}" width="60" height="60">
+    </div>
+
+    <div class="DIV">
+
+      <div class="first">
+        <span class="cart-item-name">${item.name}</span>
+      </div>
+
+      <div class="second">
+        <label class="cart-item-priceCount"
+        <label>${myCount} x ${item.price} = &euro; ${fixedItemTotal}</label>
+      </div>
+
+  </div>
+
+  <div class="X">
     <a href="#" onclick="removeItemFromCart('${item.name}')">X</a>
+  </div>
+</div>
+
+
     `
 
     let ul = document.getElementById('show-cart');

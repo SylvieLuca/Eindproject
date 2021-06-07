@@ -1439,12 +1439,12 @@ tbody {
 }
 
 .product-name {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .product-image:hover {
   margin-top: 35px;
-  transform: scale3d(2,2,2);
+  transform: scale3d(2.1,1.95,2);
 }
 
 .shop-button {
@@ -1488,21 +1488,15 @@ tbody {
   color: white;
   list-style: none;
   text-align: center;
-  width: 25%;
+  width: 35%;
   padding: 0;
   margin:0;
   height: fit-content;
-}
-
-.emptyCartBtn {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  color: rgb(0, 3, 153);
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
-  width: 30%;
+  justify-content: center;
+  
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 
 .goToCartBtn {
@@ -1510,10 +1504,39 @@ tbody {
 								#edc800, #e3b600, #f3cf00, #ffe800,
 								#edc800, #e3b600, #f3cf00, #ffe800,
 								#edc800, #e3b600, #f3cf00, #ffe800);
-                display: flex;
-                margin:auto;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
+  display: block;
+  margin:auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.shippingCostLabel {
+  display: block;
+  margin-bottom: 1rem;
+
+}
+
+.totalItemsLabel {
+  display: block;
+
+}
+
+.totalPriceLabel {
+  display: block;
+  margin-bottom: 1rem;
+  border: 1px solid white;
+
+}
+
+.emptyCartBtn {
+  background: none!important;
+  border: none;
+  color: rgb(0, 3, 153);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  text-decoration: underline;
+  width: 30%;
 }
 
 .btn-remove {
@@ -1521,23 +1544,39 @@ tbody {
   width: 50%;
 }
 
-.cart-item {
-  display: flex;
-  margin-top: 1rem;
-  margin-bottom: 3rem; 
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 2rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-bottom: solid white 1px;
-}
+  .img {
+    width: 125px;
+  height: 125px;
+  }
 
-.cart-quantity {
-  width: 6em;
-}
-
-.cart-quantity-input {
-  width: 50%;
-}
+  .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    grid-template-rows: 1 fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "Image DIV X";
+      align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .Image { grid-area: Image; }
+  
+  .DIV {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "first first first"
+      "second second second";
+    grid-area: DIV;
+  }
+  
+  .first { grid-area: first; }
+  
+  .second { grid-area: second; }
+  
+  .X { grid-area: X; }
+  
 
