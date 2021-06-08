@@ -1,6 +1,23 @@
 <footer class="block block--dark footer">
   <div class="grid footer__sections">
 
+  <section class="collapsible footer__section">
+      <header class="collapsible__header">
+        <h2 class="collapsible__heading footer__heading">Navigation</h2>
+        <svg class="icon icon--white collapsible__chevron">
+          <use xlink:href="images/sprite.svg#chevron"></use>
+        </svg>
+      </header>
+      <div class="collapsible__content">
+        <ul class="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.php">Log In</a></li>
+          <li><a href="signup.php">Sign Up</a></li>
+          <li><a href="shop.php">Webshop</a></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="collapsible footer__section">
       <header class="collapsible__header">
         <h2 class="collapsible__heading footer__heading">Company</h2>
@@ -10,7 +27,7 @@
       </header>
       <div class="collapsible__content">
         <ul class="list">
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">About Us</a></li>
 
         </ul>
       </div>
@@ -40,7 +57,6 @@
       <div class="collapsible__content">
         <ul class="list">
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">FAQ</a></li>
         </ul>
       </div>
     </section>
@@ -66,8 +82,8 @@
   </div>
   
   <div class="privacyAndTerms">
-    <a href="https://www.freeprivacypolicy.com/live/d19021ec-2542-43c2-899f-a7942c59718d">Privacy Policy</a>
-    <a href="https://www.freeprivacypolicy.com/live/cd687b27-9b46-4c3e-8ba9-69d6aef2cc0d">Terms & Conditions</a>
+    <a href="https://www.privacypolicygenerator.info/download.php?lang=en&token=lkfKGhPrXgMX5Uabfh0ORxwiJKzy0Nh6">Privacy Policy</a>
+    <a href="https://www.termsandconditionsgenerator.com/download.php?lang=en&token=2qaM3tpXjQumcp2xVxlh681hD9JeQpNZ">Terms & Conditions</a>
     <a href="https://icons8.com/icon/set/ecommerce/nolan" target="blank">Icons</a>
     </div>
 

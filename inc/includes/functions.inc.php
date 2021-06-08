@@ -84,7 +84,6 @@ function createUser($conn, $firstName, $lastName, $email, $username, $pwd) {
 	mysqli_stmt_close($stmt);
 	header ("location: ../signup.php?error=none");
 	exit();
-
 }
 
 function emptyInputLogin($username, $pwd) {

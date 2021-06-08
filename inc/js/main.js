@@ -200,6 +200,14 @@ function showCartBadge() {
 
     let showcartcontainer = document.getElementById('show-cart');    
 
+    //Show "clear cart" button if cart is not empty
+    let emptyCartBtn = document.createElement("INPUT");
+    emptyCartBtn.setAttribute("type", "button");
+    emptyCartBtn.setAttribute("value", "Empty Cart");
+    emptyCartBtn.className = "emptyCartBtn";
+    emptyCartBtn.addEventListener('click', clearCart);
+    showcartcontainer.appendChild(emptyCartBtn);
+
     // Free shipping label
     let shippingCostLabel = document.createElement("LABEL");
     shippingCostLabel.className = "shippingCostLabel";
@@ -222,20 +230,34 @@ function showCartBadge() {
     showcartcontainer.appendChild(totalPrice);
 
     //Shopping Cart Button
-    let goToCartBtn = document.createElement("a");
-    let text = "Go To Shopping Cart"; 
-    goToCartBtn.textContent = text;
-    goToCartBtn.setAttribute("href", "cart.php");
-    goToCartBtn.className = "btn shop-button goToCartBtn";
-    showcartcontainer.appendChild(goToCartBtn);
+    let purchaseButton = document.createElement("a");
+    purchaseButton.href = "#modal";
+    purchaseButton.className = "btn contact-form-btn shop-button purchaseButton";
+    purchaseButton.type = "submit";
+    let text = "Purchase"; 
+    purchaseButton.textContent = text;
+    // purchaseButton.setAttribute("href", "cart.php");
+    // purchaseButton.className = "btn shop-button purchaseButton";
+    showcartcontainer.appendChild(purchaseButton);
 
-    //Show "clear cart" button if cart is not empty
-    let emptyCartBtn = document.createElement("INPUT");
-    emptyCartBtn.setAttribute("type", "button");
-    emptyCartBtn.setAttribute("value", "Empty Cart");
-    emptyCartBtn.className = "emptyCartBtn";
-    emptyCartBtn.addEventListener('click', clearCart);
-    showcartcontainer.appendChild(emptyCartBtn);
+    let modal = document.createElement("DIV");
+    modal.id = "modal";
+    showcartcontainer.appendChild(modal);
+
+    let modalDiv = document.createElement("DIV");
+    modalDiv.className = "modal__window";
+    modal.appendChild(modalDiv);
+    
+    let anchor = document.createElement("a");
+    anchor.className = "modal__cl";
+    anchor.href = "#";
+    anchor.textContent = "X";
+    modalDiv.appendChild(anchor);
+
+    let thanks = document.createElement("h2");
+    thanks.className = "thanksText";
+    thanks.textContent = "Thank you! We received your order and will contact you to make further arrangements about payment and delivery.";
+    anchor.appendChild(thanks);
 
 	} else {
     let showcartcontainer = document.getElementById('show-cart');    
@@ -266,29 +288,21 @@ function showCartBadgeItem(item)
   let cartRowContents = `
   <div class="grid-container">
     <div class="Image">
-      <img class="img" src="${item.image}" width="60" height="60">
+      <img class="img" src="${item.image}">
     </div>
-
     <div class="DIV">
-
       <div class="first">
         <span class="cart-item-name">${item.name}</span>
       </div>
-
       <div class="second">
         <label class="cart-item-priceCount"
         <label>${myCount} x ${item.price} = &euro; ${fixedItemTotal}</label>
       </div>
-
   </div>
-
   <div class="X">
     <a href="#" onclick="removeItemFromCart('${item.name}')">X</a>
   </div>
-</div>
-
-
-    `
+</div>`
 
     let ul = document.getElementById('show-cart');
     let li = document.createElement("li");

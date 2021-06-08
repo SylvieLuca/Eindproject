@@ -4,6 +4,16 @@
 
 <body>
 
+<?php
+  if (isset($_SESSION["userid"])) { ?>
+
+<section class="block block--dark block--skewed-left">
+      <div class="grid">
+        <header class="block__header ">
+          <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
+          </div>
+          </section>
+
 <div class="shop">
 
 <?php
@@ -37,6 +47,27 @@
     </ul>
   </div>
 
+  <?php
+
+} else { ?>
+    <section class="block block--dark block--skewed-left">
+      <div class="grid">
+        <header class="block__header ">
+          <h1 class="block__h1"><span>Quetie</span> and <span>Smoetie's</span> <span>Quality</span> <span>Scratching</span></h1>
+
+          <?php
+            if (!isset($_SESSION["userid"])) { ?>
+              <p>Please register or log in to visit our webshop</p>
+              <div>
+                <a href="signup.php" class="btn btn--stretched">Register</a>
+                <a href="login.php" class="btn btn--stretched">Log In</a>
+              </div>  
+          </header>
+      </div>
+          <?php }
+          ?>
+    </section><?php } ?>
+  
 <?php
   include_once 'footer.php';
 ?>

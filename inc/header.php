@@ -22,7 +22,7 @@
   <header>
     <nav class="nav collapsible">
 
-    <a class="nav__brand" href="index.html"><img class="link__logo" src="images/logoSmall.png" /></a>
+    <a class="nav__brand" href="index.html"><img class="link__logo" src="images/logoSmall.png" alt="Logo"/></a>
       <svg class="icon icon--white nav__toggler">
         <use xlink:href="images/sprite.svg#menu"></use>
       </svg>
@@ -32,7 +32,6 @@
         if (isset($_SESSION["userid"])) { ?>
           <li class='nav__item <?= ($activePage == 'index.html') ? 'active':''?>'><a href='index.html'>Home</a></li>
           <li class='nav__item <?= ($activePage == 'shop.php') ? 'active':''?>'><a href='shop.php'>Shop</a></li>
-          <li class='nav__item <?= ($activePage == 'cart.php') ? 'active':''?>'><a href='cart.php'>Shopping Cart</a></li>
           <li class='nav__item <?= ($activePage == 'logout.php') ? 'active':''?>'><a href='includes/logout.inc.php'>Log Out</a></li>
         <?php }
         else { ?>
@@ -44,8 +43,8 @@
       </ul>
 
       <ul class="list nav__list collapsible__content">
+        <li class='nav__item <?= ($activePage == 'about.html') ? 'active':''?>'><a href='about.html'>About Us</a></li>
         <li class='nav__item <?= ($activePage == 'contact.html') ? 'active':''?>'><a href='contact.html'>Contact</a></li>
-        <li class='nav__item <?= ($activePage == 'about.html') ? 'active':''?>'><a href='about.html'>About</a></li>
       </ul>
     
     </nav>
